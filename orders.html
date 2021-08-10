@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">  
+    <title>Ok Suporte - Pedidos</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="link-logo-left"><img id="logo-left" src="assets/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
+      <div class="page-title">
+        <h3>Lista de Pedidos</h3>
+        <p class="company-name">(Nome da empresa)</p>
+      </div>  
+      <div class="container-loged">
+        <button onclick="userDropdownMenu()" class="btn-info-loged">Usuário </br>(empresa)</button>
+        <div id="user-dropdown" class="user-dropdown-content">
+          <a href="preferences.html">Configurações</a>
+          <a href="login.html">Sair</a>
+        </div>
+      </div>        
+    </header>   
+    <main>
+
+      <table id="table-orders">
+        <tr>
+        <th>ID</th>
+        <th>CLIENTE FINAL</th>
+        <th>REVENDA</th>
+        <th>USUÁRIO</th>
+        <th>VALOR</th>
+        <th>RECEBIDO EM</th>
+        <th>SITUAÇÃO</th>
+        </tr>
+        <tr>
+          <td>vazio</td>
+          <td>vazio</td>
+          <td>vazio</td>
+          <td>vazio</td>
+          <td>vazio</td>
+          <td>vazio</td>
+          <td><button class="os-sts-menu" onclick="openModal();"><p></p></button></td>
+          <td><button class="order-details" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button></td>
+        </tr>
+        <tr>
+          <td>vazio</td>
+          <td>vazio</td>
+          <td>vazio</td>
+          <td>vazio</td>
+          <td>vazio</td>
+          <td>vazio</td>
+          <td><button class="os-sts-menu" onclick="openModal();"><p></p></button></td>
+          <td><button class="order-details" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button></td>
+        </tr>
+
+      </table>
+    </main>
+
+
+
+  <!-- MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL -->
+    <div id="os-modal" class="modal-container">
+      <div class="modal">
+        <p>Situação do Pedido ("ID do pedido")</p>  
+        <input type="radio" onclick="getChecked()" id="received" value="Recebido" name="sts-options">
+        <label for="#">Recebido</label></br>
+        <input type="radio" onclick="getChecked()" id="queue" value="Na Fila" name="sts-options">
+        <label for="#">Na Fila</label></br>
+        <input type="radio" onclick="getChecked()" id="production" value="Furação" name="sts-options">
+        <label for="#">Furação</label></br>
+        <input type="radio" onclick="getChecked()" id="finished" value="Finalizado" name="sts-options">
+        <label for="#">Finalizado</label></br>
+        <button class="btn-cancel-modal">Cancelar</button>
+        <button class="btn-save-modal">Salvar</button>  
+      </div>
+    </div>
+
+  <!-- MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL -->
+
+
+
+
+  </body>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries-->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+    // Initialize Firebase
+    firebase.initializeApp({
+      apiKey: "AIzaSyCRfWzn6w3gbatvCr3kg3a-lUNckVnVcHE",
+      authDomain: "oksuporte-51ac6.firebaseapp.com",
+      projectId: "oksuporte-51ac6",
+      storageBucket: "oksuporte-51ac6.appspot.com",
+      messagingSenderId: "213689387816",
+      appId: "1:213689387816:web:c27634013c5d261a4d5e1d",
+      measurementId: "G-QRJMV3EHPM"
+    });
+    firebase.analytics();
+  </script>
+
+  <script src="js/script.js"></script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">  
+    <title>Ok Suporte - Suporte</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="link-logo-left"><img id="logo-left" src="assets/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
+      <div class="page-title">
+        <h3>ABRIR NOVO CHAMADO DE SUPORTE</h3>
+        <p class="company-name">(Nome da empresa)</p>
+      </div>  
+      <div class="container-loged">
+        <button onclick="userDropdownMenu()" class="btn-info-loged">Usuário </br>(empresa)</button>
+        <div id="user-dropdown" class="user-dropdown-content">
+          <a href="preferences.html">Configurações</a>
+          <a href="login.html">Sair</a>
+        </div>
+      </div>        
+    </header>
+    <main>
+
+      <!--FORMULÁRIO ABERTURA DE CHAMADO-->
+      <form id="calls-form" class="fm-nw-call">
+        <div class="fm-group g1">
+          <label for="">Título</label>
+          <input type="text" name="title" id="title">
+        </div>
+        <div class="fm-group g2">  
+          <label for="">Nº de Série Promob</label>       
+          <input type="text" name="serial" id="serial">      
+        </div>   
+        <div class="fm-group g3">
+          <label for="">Descrição do problema</label>
+          <textarea rows="10" name="description" id="description"></textarea>
+        </div>         
+        <div class="fm-group g4"> 
+          <label for="">Anexo</label> 
+          <input type="file" name="attachment" id="attachment">     
+        </div> 
+        <div class="g5">
+          <a class="btn-black" href="calls.html">Cancelar</a>  
+          <button type="submit" class="btn-black">Enviar</button>
+        </div>      
+      </form>
+
+      
+
+      <div id="call-confirmation-modal" class="modal-container">
+        <div class="modal">
+          <p>
+            Chamado de suporte aberto com sucesso!
+            o prazo para resposta é de até 48h.
+          </p>  
+          <input type="radio" onclick="getChecked()" id="received" value="Recebido" name="sts-options">
+          <label for="#">Recebido</label></br>
+          <input type="radio" onclick="getChecked()" id="queue" value="Na Fila" name="sts-options">
+          <label for="#">Na Fila</label></br>
+          <input type="radio" onclick="getChecked()" id="production" value="Furação" name="sts-options">
+          <label for="#">Furação</label></br>
+          <input type="radio" onclick="getChecked()" id="finished" value="Finalizado" name="sts-options">
+          <label for="#">Finalizado</label></br>
+          <button class="btn-cancel-modal">Cancelar</button>
+          <button id="btn-save-modal" class="btn-black">Confirmar</button>  
+        </div>
+      </div>
+
+    </main>
+    <!--footer><p>© OkSuporte. • Desenvolvido por TX Sistemas • Todos os direitos reservados.</p></footer-->
+  </body>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+
+  <!--Initialize Firebase-->
+  <script> 
+  firebase.initializeApp({
+    apiKey: "AIzaSyCRfWzn6w3gbatvCr3kg3a-lUNckVnVcHE",
+    authDomain: "oksuporte-51ac6.firebaseapp.com",
+    projectId: "oksuporte-51ac6",
+    storageBucket: "oksuporte-51ac6.appspot.com",
+    messagingSenderId: "213689387816",
+    appId: "1:213689387816:web:c27634013c5d261a4d5e1d",
+    measurementId: "G-QRJMV3EHPM"
+  });
+  firebase.analytics();  
+  </script>
+
+  <script src="js/script.js"></script>
+</html>
