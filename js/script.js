@@ -2,10 +2,12 @@ const db = firebase.firestore();
 
 const formNewCall = document.querySelector('[data-js="add-call-form"]');
 
+let tbCallsRef = document.querySelector('#tb-calls');
 
 
-/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^FIRESTORE^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^GERAIS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 
 //AO CLICAR NO NOME DO USUÁRIO LOGADO, MOSTRA AS OPÇÕES.
@@ -62,14 +64,6 @@ if (darkModeStatus === 'enabled'){
 // });
 
 
-
-//FORMATAÇÃO CONDICIONAL DA TABELA DE PEDIDOS.
-const tableFormat = () => {
-  let table = document.getElementById('table')
-}
-
-
-
 //OPÇÕES SITUAÇÃO PEDIDOS
 let osSts ='';
 let osStsOpts = document.getElementsByName('sts-options');
@@ -85,9 +79,9 @@ const getChecked = () => {
 };
 
 
-//MODAL SITUAÇÃO PEDIDOS
-let openModal = (modalId) => {
-  const modal = document.getElementById('os-modal');
+//MODAL SITUAÇÃO PEDIDOS//
+let openModalOrders = () => {
+  let modal = document.getElementById('os-modal');
   modal.classList.add('show-modal');
   modal.addEventListener('click', (e) => {
 
@@ -98,8 +92,18 @@ let openModal = (modalId) => {
 };
 
 
-const btnOpenModal = document.querySelector('.os-sts-menu');
-// btnOpenModal.addEventListener('click', () => openModal('os-modal'));
+//MODAL FORMULÁRIO DE CHAMADOS//
+let openModalCalls = () => {
+  let modal = document.querySelector('.modal-open-call');
+  modal.classList.add('show-modal');
+  modal.addEventListener('click', (e) => {
+
+    if(e.target.className === 'btn-cancel-modal'){
+      modal.classList.remove('show-modal');
+    };
+  });
+};
+
 
 //Gera o Id dos chamados.
 let generatesId = () => {
@@ -119,7 +123,7 @@ let dbCalls = db.collection('calls');
 let dbOrders = db.collection('orders');
 
 
-//SALVA DADOS DO FORMULÁRIO NO FIREBASE.
+//SALVA DADOS DO FORMULÁRIO DE ABERTURA DE CHAMADOS NO FIREBASE.
 document.getElementById('calls-form').addEventListener('submit', submitForm);
 
 function submitForm(e){
@@ -132,8 +136,8 @@ function submitForm(e){
     attachment: e.target.attachment.value,
     opening: firebase.firestore.FieldValue.serverTimestamp()
   }).then(() => {
-    // alert('Chamado aberto com sucesso!');
-    // window.location.href = "calls.html"; 
+    //alert('Chamado aberto com sucesso!');
+    window.location.href = "calls.html"; 
     document.getElementById('calls-form').reset();
   })
   .catch(e => {
@@ -141,18 +145,21 @@ function submitForm(e){
   });
 };
 
+
 //OBTER DADOS DO FIREBASE PARA ALIMENTAR TABELA DOS CHAMADOS.
 const callsList = document.querySelector('[data-js="calls-list"]');
 
-dbCalls.get().then(snapshot => {
+dbCalls.orderBy("opening", "desc").get().then(snapshot => {
   const callGroup = snapshot.docs.reduce((acc, doc) => {
+    const {id, title, user, companies, opening, status} = doc.data();
+
     acc += `<tr>
-              <td>${doc.data().id}</td>
-              <td>${doc.data().title}</td>
-              <td>${doc.data().user}</td>
-              <td>${doc.data().companies}</td>
-              <td>${doc.data().opening}</td>
-              <td>${doc.data().status}</td>
+              <td>${id}</td>
+              <td>${title}</td>
+              <td>${user}</td>
+              <td>${companies}</td>
+              <td>${opening.toDate().toLocaleDateString('pt-BR', {timeZone: 'UTC'})} - ${opening.toDate().toLocaleTimeString('pt-BR', {timeStyle: "short"})}</td>
+              <td>${status}</td>
             </tr>`
     return acc;
   }, '') 
@@ -161,3 +168,6 @@ dbCalls.get().then(snapshot => {
 .catch(err => {
   console.log(err.message)
 })
+
+
+/*ORDENAÇÃO DA TABELA DE CHAMADOS*/

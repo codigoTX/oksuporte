@@ -11,7 +11,7 @@
     <header>
       <a href="index.html" class="link-logo-left"><img id="logo-left" src="assets/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
       <div class="page-title">
-        <h3>Lista de Chamados</h3>
+        <h2>Lista de Chamados</h2>
         <p class="company-name">(Nome da empresa)</p>
       </div>  
       <div class="container-loged">
@@ -23,11 +23,10 @@
       </div>        
     </header> 
 
-
     <main>
-      <a class="btn-green" href="form_new_call.html">Novo</a>
+      <button class="btn-green" onclick="openModalCalls();">Novo</button>
       <table data-js="calls-list" id="tb-calls" class="table-support">
-        <tr>
+        <tr id="tr-calls">
           <th>#</th>
           <th>Título</th>
           <th>Usuário</th>
@@ -38,28 +37,30 @@
       </table>
 
       <!--FORMULÁRIO ABERTURA DE CHAMADO-->
-      <form id="calls-form" class="fm-nw-call">
-        <div class="fm-group g1">
-          <label for="">Título</label>
-          <input type="text" name="title" id="title">
-        </div>
-        <div class="fm-group g2">  
-          <label for="">Nº de Série Promob</label>       
-          <input type="text" name="serial" id="serial">      
-        </div>   
-        <div class="fm-group g3">
-          <label for="">Descrição do problema</label>
-          <textarea rows="10" name="description" id="description"></textarea>
-        </div>         
-        <div class="fm-group g4"> 
-          <label for="">Anexo</label> 
-          <input type="file" name="attachment" id="attachment">     
-        </div> 
-        <div class="g5">
-          <a class="btn-black" href="calls.html">Cancelar</a>  
-          <button type="submit" class="btn-black">Enviar</button>
-        </div>      
-      </form>      
+      <div class="modal-open-call">
+        <form id="calls-form" class="fm-nw-call">
+          <div class="fm-group g1">
+            <label for="">Título</label>
+            <input type="text" name="title" id="title">
+          </div>
+          <div class="fm-group g2">  
+            <label for="">Nº de Série Promob</label>       
+            <input type="text" name="serial" id="serial">      
+          </div>   
+          <div class="fm-group g3">
+            <label for="">Descrição do problema</label>
+            <textarea rows="10" name="description" id="description"></textarea>
+          </div>         
+          <div class="fm-group g4"> 
+            <label for="">Anexo</label> 
+            <input type="file" name="attachment" id="attachment">     
+          </div> 
+          <div class="g5">
+            <a class="btn-black" href="calls.html">Cancelar</a>  
+            <button type="submit" class="btn-black">Enviar</button>
+          </div>      
+        </form> 
+      </div>       
 
       <!-- Modal confirmação de abertura de chamado -->
       <div id="call-confirmation-modal" class="modal-container">
