@@ -1,5 +1,11 @@
 const db = firebase.firestore();
 
+//REFERENCIAS FIREBASE//
+let dbUsers = db.collection('users');
+let dbCompanies = db.collection('companies');
+let dbCalls = db.collection('calls');
+let dbOrders = db.collection('orders');
+
 const formNewCall = document.querySelector('[data-js="add-call-form"]');
 
 let tbCallsRef = document.querySelector('#tb-calls');
@@ -11,7 +17,7 @@ let tbCallsRef = document.querySelector('#tb-calls');
 //AO CLICAR NO NOME DO USUÁRIO LOGADO, MOSTRA AS OPÇÕES.
 function userDropdownMenu() {
   document.getElementById("user-dropdown").classList.toggle("show-user-opts");
-}
+};
 
 //FECHA O MENU DROPDOWN AO CLICAR FORA DAS OPÇÕES.
 window.onclick = function(event) {
@@ -81,8 +87,3 @@ let generatesId = () => {
 };
 
 /*----------------------------------------------------------------------------------------------------------*/
-//GERAIS FIREBASE//
-let dbUsers = db.collection('users');
-let dbCompanies = db.collection('companies');
-let dbCalls = db.collection('calls');
-let dbOrders = db.collection('orders');

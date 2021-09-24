@@ -327,7 +327,7 @@ footer{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1em; 
-  background-color: #757575;
+  background-color: #e7e5e5;
   padding: 2rem;
   border-radius: 1rem;
 }

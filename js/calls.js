@@ -10,7 +10,6 @@ let openModalCalls = () => {
   });
 };
 
-
 //SALVA DADOS DO FORMULÁRIO DE ABERTURA DE CHAMADOS NO FIREBASE.
 document.getElementById('calls-form').addEventListener('submit', submitForm);
 
