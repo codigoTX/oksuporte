@@ -3,6 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const fileupload = require('express-fileupload');
+const mustache = require('mustache-express');
+const path = require('path');
 
 const mainRoutes = require('./routes/index');
 
@@ -18,12 +20,17 @@ mongoose.connection.on('error', (error) => {
 
 const server = express();
 
+server.set('view engine', "mustache");
+server.set('views', path.join(__dirname, 'views'));
+server.engine('mustache', mustache());
+
 server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({extended: true}));
 server.use(fileupload());
 
-server.use(express.static(__dirname+'/public'));
+// server.use(express.static(__dirname+'/public'));
+server.use(express.static('public'));
 
 server.get('/ping', (req, res) => {
   res.json({pong: true});
@@ -36,8 +43,6 @@ server.use((req, res) => {
 });
 //CANIL
 
-
-
 server.listen(process.env.PORT, () => {
-  console.log(`Rodando no endereço: ${process.env.BASE}`);
+  console.log(`Running at ${process.env.BASE}`);
 });

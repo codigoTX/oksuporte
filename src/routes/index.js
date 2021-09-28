@@ -1,15 +1,13 @@
 const router = require('express').Router();
-// const home = require('../controllers/defaultController');
-// const tickets = require('../controllers/defaultController');
-// const orders = require('../controllers/defaultController');
-// const tips = require('../controllers/defaultController');
-const { home, tickets, orders, tips } = require('../controllers/defaultController');
-const settings = require('../controllers/settingsController');
+const { login, home, tickets, orders, info, help } = require('../controllers/defaultController');
+const preferences = require('../controllers/preferencesController');
 
-router.get('/', home);
+router.get('/', login);
+router.get('/home', home);
 router.get('/tickets', tickets);
 router.get('/orders', orders);
-router.get('/tips', tips);
-router.get('/settings', settings);
+router.get('/info', info);
+router.get('/preferences', preferences);
+router.get('/help', help);
 
 module.exports = router;

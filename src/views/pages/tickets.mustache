@@ -1,0 +1,58 @@
+{{>partials/header}}    
+
+    <main>
+      <button class="btn-green" onclick="openModalTickets();">Novo</button>
+      <table data-js="tickets-list" id="tb-tickets" class="table-support">
+        <tr id="tr-tickets">
+          <th>#</th>
+          <th>Título</th>
+          <th>Usuário</th>
+          <th>Empresa</th>
+          <th>Abertura</th>
+          <th>Situação</th>
+        </tr>
+      </table>
+
+      <!--FORMULÁRIO ABERTURA DE CHAMADO-->
+      <div class="modal-open-ticket">
+        <form id="tickets-form" class="fm-nw-ticket">
+          <p>Novo Chamado de Suporte</p>
+          <div class="fm-group g1">
+            <label for="">Título</label>
+            <input type="text" name="title" id="title">
+          </div>
+          <div class="fm-group g2">  
+            <label for="">Nº de Série Promob</label>       
+            <input type="text" name="serial" id="serial">      
+          </div>   
+          <div class="fm-group g3">
+            <label for="">Descrição do problema</label>
+            <textarea rows="10" name="description" id="description"></textarea>
+          </div>         
+          <div class="fm-group g4"> 
+            <label for="">Anexo</label> 
+            <input type="file" name="attachment" id="attachment">     
+          </div> 
+          <div class="g5">
+            <a class="btn-cancel" href="tickets">Cancelar</a>  
+            <button type="submit" class="btn-black">Enviar</button>
+          </div>      
+        </form> 
+      </div>       
+
+      <!-- Modal confirmação de abertura de chamado -->
+      <div id="ticket-confirmation-modal" class="modal-container">
+        <div class="modal">
+          <p>
+            Chamado de suporte aberto com sucesso!
+            o prazo para resposta é de até 48h.
+          </p>
+          <button class="btn-cancel-modal">Cancelar</button>
+          <button class="btn-black">Confirmar</button>
+        </div>
+      </div>
+
+    </main>
+  <script src="js/tickets.js"></script>
+
+  {{>partials/footer}}

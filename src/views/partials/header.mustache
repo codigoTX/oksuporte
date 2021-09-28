@@ -4,32 +4,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
   <title>Ok Suporte</title>
 </head>
 <body>
   <header>
-    <a href="index.html" class="link-logo-left"><img id="logo-left" src="assets/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
+    <a href="/home" class="link-logo-left"><img id="logo-left" src="/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
     <div class="page-title">
-      <h3>PAINEL ADM</h3>
+      <h3>ESCOLHA A OPÇÃO DESEJADA</h3>
     </div>  
     <div class="container-loged">
       <button onclick="userDropdownMenu()" class="btn-info-loged">Usuário </br>(empresa)</button>
       <div id="user-dropdown" class="user-dropdown-content">
-        <a href="preferences.html">Configurações</a>
-        <a href="login.html">Sair</a>
+        <a href="preferences">Configurações</a>
+        <a href="/">Sair</a>
       </div>
     </div>        
   </header> 
-  <main>     
-    <div class="container-menu-index">
-      <a href="user_crud.html">USUÁRIOS</a>
-      <a href="companies_crud.html">EMPRESAS</a>
-      <a href="reports.html">RELATÓRIOS</a>      
-    </div>
-  </main> 
-  <!--footer><p>©OkSuporte. • Desenvolvido por TX Sistemas • Todos os direitos reservados.</p></footer-->
-</body>
+  </body>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
@@ -57,5 +49,5 @@
   firebase.analytics();
   
 </script>
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 </html>

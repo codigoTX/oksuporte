@@ -1,20 +1,28 @@
 const express = require('express');
 
+const login = (req, res) => {
+  res.render('pages/login');
+};
+
 const home = (req, res) => {
-  res.send('ESSA É A HOME');
+  res.render('pages/home');
 };
 
 const tickets = (req, res) => {
-  res.send('TICKETS');
+  res.render('pages/tickets');
 };
 
 const orders = (req, res) => {
-  res.send('PEDIDOS');
+  res.render('pages/orders');
 };
 
-const tips = (req, res) => {
-  res.send('DICAS');
+const info = (req, res) => {
+  res.render('pages/info');
 };
 
+const help = (req, res) => {
+  res.render('pages/help');
+};
 
-module.exports = {home, tickets, orders, tips};
+//Exportando para a index.
+module.exports = {login, home, tickets, orders, info, help};

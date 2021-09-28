@@ -5,6 +5,8 @@
 
 Esse sistema está sendo desenvolvido para praticar os conhecimentos e habilidades adquiridos durante meus primeiros passos no mundo da programação, bem como oferecer uma solução a um problema/dificuldade presente no dia a dia de muitas fábricas de móveis planejados.
 
+###gif do projeto funcionando
+
 ###link do projeto publicado
 
 ###layout web

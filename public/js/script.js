@@ -3,12 +3,10 @@ const db = firebase.firestore();
 //REFERENCIAS FIREBASE//
 let dbUsers = db.collection('users');
 let dbCompanies = db.collection('companies');
-let dbCalls = db.collection('calls');
+let dbTickets = db.collection('tickets');
 let dbOrders = db.collection('orders');
 
-const formNewCall = document.querySelector('[data-js="add-call-form"]');
-
-let tbCallsRef = document.querySelector('#tb-calls');
+let tbTicketsRef = document.querySelector('#tb-tickets');
 
 
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^GERAIS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
@@ -40,12 +38,12 @@ const logoLeft = document.getElementById('logo-left');
 if(themeDark === 'enabled'){
   document.body.classList.add('darkmode');
   localStorage.setItem('darkModeStatus', 'enabled');
-  logoLeft.src = "assets/images/logo_oksuporte2.png";
+  logoLeft.src = "/images/logo_oksuporte2.png";
 }
 else{
   document.body.classList.remove('darkmode');
   localStorage.setItem('darkModeStatus', 'disabled');
-  logoLeft.src = "assets/images/logo_oksuporte.png";
+  logoLeft.src = "/images/logo_oksuporte.png";
 }
 
 //OPÇÕES SITUAÇÃO PEDIDOS

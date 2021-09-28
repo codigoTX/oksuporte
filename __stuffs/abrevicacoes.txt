@@ -1,5 +1,0 @@
-fm: formulário
-nw: novo
-ctn: container
-btn: botão
-opts: opções

@@ -1,6 +1,6 @@
 //MODAL FORMULÁRIO DE CHAMADOS//
-let openModalCalls = () => {
-  let modal = document.querySelector('.modal-open-call');
+let openModalTickets = () => {
+  let modal = document.querySelector('.modal-open-ticket');
   modal.classList.add('show-modal');
   modal.addEventListener('click', (e) => {
 
@@ -11,12 +11,12 @@ let openModalCalls = () => {
 };
 
 //SALVA DADOS DO FORMULÁRIO DE ABERTURA DE CHAMADOS NO FIREBASE.
-document.getElementById('calls-form').addEventListener('submit', submitForm);
+document.getElementById('tickets-form').addEventListener('submit', submitForm);
 
 function submitForm(e){
   e.preventDefault();
 
-  dbCalls.add({
+  dbTickets.add({
     title: e.target.title.value,
     serial: e.target.serial.value, 
     description: e.target.description.value, 
@@ -24,8 +24,8 @@ function submitForm(e){
     opening: firebase.firestore.FieldValue.serverTimestamp(),
   }).then(() => {
     //alert('Chamado aberto com sucesso!');
-    window.location.href = "calls.html"; 
-    document.getElementById('calls-form').reset();
+    window.location.href = "tickets"; 
+    document.getElementById('tickets-form').reset();
   })
   .catch(e => {
     alert('Falha ao abrir chamado');
@@ -33,10 +33,10 @@ function submitForm(e){
 };
 
 //OBTER DADOS DO FIREBASE PARA ALIMENTAR TABELA DOS CHAMADOS.
-const callsList = document.querySelector('[data-js="calls-list"]');
+const ticketsList = document.querySelector('[data-js="tickets-list"]');
 
-dbCalls.orderBy("opening", "desc").get().then(snapshot => {
-  const callGroup = snapshot.docs.reduce((acc, doc) => {
+dbTickets.orderBy("opening", "desc").get().then(snapshot => {
+  const ticketGroup = snapshot.docs.reduce((acc, doc) => {
     const {id, title, user, companies, opening, status} = doc.data();
 
     acc += `<tr>
@@ -49,7 +49,7 @@ dbCalls.orderBy("opening", "desc").get().then(snapshot => {
             </tr>`
     return acc;
   }, '') 
-  callsList.innerHTML += callGroup;
+  ticketsList.innerHTML += ticketGroup;
 })
 .catch(err => {
   console.log(err.message)
