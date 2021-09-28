@@ -1,34 +1,31 @@
-<img src="public/images/logo_oksuporte.png" width="100">
+<img src="public/images/logo_oksuporte.png" width="150">
 
-## Sobre o projeto
+### Sobre o projeto
 © OkSuporte é um sistema para controle e acompanhamento de chamados de suporte(tickets) e pedidos(ordens de serviço) para fábricas de móveis.
 
 Esse sistema está sendo desenvolvido para praticar os conhecimentos e habilidades adquiridos durante meus primeiros passos no mundo da programação, bem como oferecer uma solução a um problema/dificuldade presente no dia a dia de muitas fábricas de móveis planejados.
 
-##link do projeto publicado
+###link do projeto publicado
 
-##layout web
+###layout web
 
-##layout mobile
-___
+###layout mobile
+## Tecnologias utilizadas
 
-# Tecnologias utilizadas
-
-## Front-end
+### Front-end
 
 - HTML
 - CSS
 - Javascript
 
 
-## Back-end
+### Back-end
 
 - Javascript
 - NodeJS
 - MongoDB
-___
 
-# Como executar o projeto
+## Como executar o projeto
 
 ```bash
 #clonar o repositório
@@ -41,19 +38,8 @@ npm install
 npm run startdev
 ```
 
-# Autor
+## Autor
 
 Rafael Silva Teixeira
 
 https://www.linkedin.com/in/rafaeltx/
-
-
-
-
-
-
-
-
-
-
-
