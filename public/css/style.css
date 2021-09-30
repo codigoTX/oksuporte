@@ -7,7 +7,7 @@
 
 .darkmode{
   --bc: #333333;
-  --fc: #fffbfb;
+  --fc: #727574;
  }
   
 *{  
@@ -80,13 +80,13 @@ footer{
   align-items: center;
 }
 
-.container-loged{
+.container-logged{
   height: fit-content;
   width: 5rem;
   margin-top: 2rem;
 }
 
-.btn-info-loged{
+.btn-info-logged{
   font-size: 0.7rem;
   border-style: none;
   cursor: pointer;
@@ -94,7 +94,7 @@ footer{
   flex-direction: row-reverse;
   background-color: transparent;
 }
-  .btn-info-loged:hover, .btn-info-loged:focus{
+  .btn-info-logged:hover, .btn-info-logged:focus{
     color: #33cc99;
   }
 

@@ -9,19 +9,48 @@
 </head>
 <body>
   <header>
-    <a href="/home" class="link-logo-left"><img id="logo-left" src="/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
+    <a href="home" class="link-logo-left"><img id="logo-left" src="/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
     <div class="page-title">
-      <h3>ESCOLHA A OPÇÃO DESEJADA</h3>
+      <h3>{{ pageDetails.title }}</h3>
     </div>  
-    <div class="container-loged">
-      <button onclick="userDropdownMenu()" class="btn-info-loged">Usuário </br>(empresa)</button>
+    <div class="container-logged">
+      <button onclick="userDropdownMenu()" class="btn-info-logged">Usuário </br>(empresa)</button>
       <div id="user-dropdown" class="user-dropdown-content">
         <a href="preferences">Configurações</a>
         <a href="/">Sair</a>
       </div>
     </div>        
   </header> 
-  </body>
+  {{ #pageDetails.home }}
+  {{ >pages/home }}
+  {{ /pageDetails.home }}
+
+  {{ #pageDetails.tickets }}
+  {{ >pages/tickets }}
+  {{ /pageDetails.tickets }}
+
+  {{ #pageDetails.orders }}
+  {{ >pages/orders }}
+  {{ /pageDetails.orders }}
+
+  {{ #pageDetails.info }}
+  {{ >pages/info }}
+  {{ /pageDetails.info }}
+
+  {{ #pageDetails.help }}
+  {{ >pages/help }}
+  {{ /pageDetails.help }}
+
+  {{ #pageDetails.preferences }}
+  {{ >pages/preferences }}
+  {{ /pageDetails.preferences }}
+
+  {{ #pageDetails.crud_users }}
+  {{ >pages/crud_users }}
+  {{ /pageDetails.crud_users }}
+
+  <!--footer><p>© OkSuporte. • Desenvolvido por TX Sistemas • Todos os direitos reservados.</p></footer-->
+</body>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
@@ -49,5 +78,5 @@
   firebase.analytics();
   
 </script>
-<script src="/js/script.js"></script>
+<script src="js/script.js"></script>
 </html>

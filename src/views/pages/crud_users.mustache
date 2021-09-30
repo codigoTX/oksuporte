@@ -1,0 +1,36 @@
+  <body>
+    <main>
+      <!--FORMULÁRIO ADD USUÁRIO-->
+      <form method="POST" action="/listagem" class="">
+        <div class="fm-group g2">  
+          <label for="">Id</label>       
+          <input type="text" name="id" id="id">      
+        </div>   
+        <div class="fm-group g1">
+          <label for="">Nome</label>
+          <input type="text" name="name" id="name">
+        </div>
+        <div class="fm-group g1">
+          <label for="">E-mail</label>
+          <input type="email" name="email" id="email">
+        </div>
+        <div class="fm-group g1">
+          <label for="">Senha</label>
+          <input type="password" name="password" id="password">
+        </div>
+        <div>
+          <p>PERMISSÕES</p>
+          <input type="radio" onclick="getChecked()" id="A" value="A">
+          <label for="#">Administrador</label></br>
+          <input type="radio" onclick="getChecked()" id="B" value="B">
+          <label for="#">Solicitante</label></br>
+          <input type="radio" onclick="getChecked()" id="C" value="C">
+          <label for="#">Visualizador</label></br>          
+        </div>
+        <div class="g5">
+          <a class="btn-black" href="">Cancelar</a>  
+          <button type="submit" class="btn-black">Enviar</button>
+        </div>      
+      </form>
+    </main>
+  </body>

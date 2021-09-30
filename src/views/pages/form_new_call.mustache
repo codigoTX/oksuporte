@@ -1,21 +1,5 @@
-{{>partials/header}}
   <body>
-    <header>
-      <a href="home" class="link-logo-left"><img id="logo-left" src="/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
-      <div class="page-title">
-        <h3>ABRIR NOVO CHAMADO DE SUPORTE</h3>
-        <p class="company-name">(Nome da empresa)</p>
-      </div>  
-      <div class="container-loged">
-        <button onclick="userDropdownMenu()" class="btn-info-loged">Usuário </br>(empresa)</button>
-        <div id="user-dropdown" class="user-dropdown-content">
-          <a href="preferences">Configurações</a>
-          <a href="login">Sair</a>
-        </div>
-      </div>        
-    </header>
     <main>
-
       <!--FORMULÁRIO ABERTURA DE CHAMADO-->
       <form id="tickets-form" class="fm-nw-ticket">
         <div class="fm-group g1">
@@ -38,9 +22,7 @@
           <a class="btn-black" href="tickets">Cancelar</a>  
           <button type="submit" class="btn-black">Enviar</button>
         </div>      
-      </form>
-
-      
+      </form>      
 
       <div id="ticket-confirmation-modal" class="modal-container">
         <div class="modal">
@@ -60,7 +42,5 @@
           <button id="btn-save-modal" class="btn-black">Confirmar</button>  
         </div>
       </div>
-
     </main>
   </body>
-  {{>partials/footer}}

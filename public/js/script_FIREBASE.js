@@ -1,3 +1,16 @@
+const db = firebase.firestore();
+
+//REFERENCIAS FIREBASE//
+let dbUsers = db.collection('users');
+let dbCompanies = db.collection('companies');
+let dbTickets = db.collection('tickets');
+let dbOrders = db.collection('orders');
+
+let tbTicketsRef = document.querySelector('#tb-tickets');
+
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^GERAIS^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 
 //AO CLICAR NO NOME DO USUÁRIO LOGADO, MOSTRA AS OPÇÕES.
 function userDropdownMenu() {

@@ -8,7 +8,7 @@ const path = require('path');
 
 const mainRoutes = require('./routes/index');
 
-mongoose.connect(process.env.DATABASE, {
+mongoose.connect(process.env.DB, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true
