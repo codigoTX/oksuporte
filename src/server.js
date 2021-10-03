@@ -6,7 +6,7 @@ const fileupload = require('express-fileupload');
 const mustache = require('mustache-express');
 const path = require('path');
 
-const mainRoutes = require('./routes/index');
+const mainRoutes = require('./routes/router');
 
 mongoose.connect(process.env.DB, {
   useNewUrlParser: true,
@@ -29,19 +29,12 @@ server.use(express.json());
 server.use(express.urlencoded({extended: true}));
 server.use(fileupload());
 
-// server.use(express.static(__dirname+'/public'));
 server.use(express.static('public'));
 
-server.get('/ping', (req, res) => {
-  res.json({pong: true});
-});
-
-//CANIL
 server.use(mainRoutes);
 server.use((req, res) => {
   res.send('ESSA PÁGINA NÃO EXISTE...')
 });
-//CANIL
 
 server.listen(process.env.PORT, () => {
   console.log(`Running at ${process.env.BASE}`);

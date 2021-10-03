@@ -13,20 +13,20 @@
    <div class="login-card">
     <img class="logo-center" src="/images/logo_oksuporte2.png" alt="logo_oksuporte">
     <h6 class="bemvindo">Bem-vindo!</h6>
-    <form method="POST" class="login-form">    
+    <form method="POST" action="/home" class="login-form">    
       <div class="mb-2">
         <label for=""></label>
-        <input type="email" class="login-input" placeholder="E-mail" required>
+        <input type="email" name="email" class="login-input" placeholder="E-mail" required>
       </div>
       <div class="mb">
         <label for="" class="form-label"></label>
-        <input type="password" class="login-input" placeholder="Senha" required>
+        <input type="password" name="password" class="login-input" placeholder="Senha" required>
       </div>
     </br>
+      <button type="submit" class="btn btn-login">Entrar</button>
     </form>
-    <button type="submit" class="btn btn-login">Entrar</button>
   </br>
-    <a target="_blank" href="help">Esqueci minha senha</a>
+    <a target="_blank" href="/help">Esqueci minha senha</a>
   </div> 
  </div>
  <!-- <footer><p>©OkSuporte. • Desenvolvido por TX Sistemas • Todos os direitos reservados.</p></footer> -->

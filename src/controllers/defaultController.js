@@ -1,16 +1,15 @@
 const express = require('express');
-// const User = require('../models/User');
+const User = require('../models/User');
+
 
 const login = (req, res) => {
   res.render('pages/login');
 };
-const home = async (req, res) => {
-  res.render('pages/template', {
-    pageDetails: {
-      title: 'ESCOLHA A OPÇÃO DESEJADA',
-      home: true 
-      }
-  });  
+const home = (req, res) => {
+  let token = req.query.token;
+
+
+
 };
 const tickets = (req, res) => {
   res.render('pages/template', {
@@ -53,6 +52,5 @@ const help = (req, res) => {
   });
 };
 
-
-//Exportando para a index.
+//Exportando para a router.
 module.exports = { login, home, tickets, orders, preferences, info, help };

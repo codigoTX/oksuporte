@@ -510,3 +510,57 @@ footer{
   } 
 
 /*-------------------------------------------------------(FIM)-PREFERÊNCIAS*/
+
+
+/*---------------------------------*/
+
+
+/*-------------------------------------------------------(INÍCIO)-CADASTRO USUÁRIOS*/
+
+.user-form{
+  margin: 2em auto 0;
+  min-width: 30vw;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}  
+.user-datas input{
+  border-color:transparent;
+  background-color: transparent;
+  border-bottom-color: var(--fc);
+  border-width: 1px;
+  outline: 0;
+}
+.user-datas input:focus::-webkit-input-placeholder{
+  color: transparent;
+}
+.user-datas{
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+
+.permissions{
+  width: fit-content;
+  display: flex;
+  align-items: center;  
+  flex-direction: row;
+}
+  .permissions label{
+    margin: 5vh 1vw;
+  }
+  
+     
+/*-------------------------------------------------------(INÍCIO)-CADASTRO USUÁRIOS*/
+
+/*
+.login-input{
+  background-color: #4d4d4d;
+  border-color: #4d4d4d;
+  border-bottom: #FFF;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center; 
+}
+  

@@ -1,0 +1,23 @@
+  <body>
+    <main>
+      <!--FORMULÁRIO ADD USUÁRIO-->
+      <form method="POST" action="/" class="user-form">         
+        <div class="user-datas">
+          <label for="">Nome</label>
+          <input type="text" name="name" id="name">
+          <label for="">E-mail</label>
+          <input type="email" name="email" id="email"> 
+          <label for="">Senha</label>
+          <input type="password" name="password" id="password">
+        </div>
+        <div class="permissions">   
+          <p>Tipo de Usuário:</p>
+          <label for="#"><input type="radio" onclick="getChecked()" name="user-type" value="viewer" checked>Visualizador</label></br>
+          <label for="#"><input type="radio" onclick="getChecked()" name="user-type" value="requester">Solicitante</label></br>          
+          <label for="#"><input type="radio" onclick="getChecked()" name="user-type" value="administrator">Administrador</label></br>
+        </div>
+          <!-- <a class="btn-black" href="">Cancelar</a> -->
+        <button type="submit" class="btn-black">Cadastrar</button>
+      </form>
+    </main>
+  </body>
