@@ -11,43 +11,38 @@
   <header>
     <a href="/home" class="link-logo-left"><img id="logo-left" src="/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
     <div class="page-title">
-      <h3>{{ pageDetails.title }}</h3>
+      <h3><%=pageDetails.title%></h3>
     </div>  
     <div class="container-logged">
       <button onclick="userDropdownMenu()" class="btn-info-logged">Usuário </br>(empresa)</button>
       <div id="user-dropdown" class="user-dropdown-content">
-        <a href="preferences">Configurações</a>
-        <a href="/">Sair</a>
+        <a href="/config">Configurações</a>
+        <a href="/adduser">Gerenciar Usuários</a>
+        <a href="/help">Ajuda</a>
+        <a href="/logout">Sair</a>
       </div>
     </div>        
   </header> 
-  {{ #pageDetails.home }}
-  {{ >pages/home }}
-  {{ /pageDetails.home }}
+    
+  <% if (pageDetails.home) { %>
+    <%- include('partials/home'); -%>    
+  <% } %>
 
-  {{ #pageDetails.tickets }}
-  {{ >pages/tickets }}
-  {{ /pageDetails.tickets }}
+  <% if (pageDetails.adduser) { %>
+    <%- include('partials/adduser'); -%>    
+  <% } %>
 
-  {{ #pageDetails.orders }}
-  {{ >pages/orders }}
-  {{ /pageDetails.orders }}
+  <% if (pageDetails.tickets) { %>
+    <%- include('partials/tickets'); -%>    
+  <% } %>
 
-  {{ #pageDetails.info }}
-  {{ >pages/info }}
-  {{ /pageDetails.info }}
+  <% if (pageDetails.orders) { %>
+    <%- include('partials/orders'); -%>    
+  <% } %>
 
-  {{ #pageDetails.help }}
-  {{ >pages/help }}
-  {{ /pageDetails.help }}
-
-  {{ #pageDetails.preferences }}
-  {{ >pages/preferences }}
-  {{ /pageDetails.preferences }}
-
-  {{ #pageDetails.userCrud }}
-  {{ >pages/user_crud }}
-  {{ /pageDetails.userCrud }}
+  <% if (pageDetails.config) { %>
+    <%- include('partials/config'); -%>    
+  <% } %>
 
   <!--footer><p>© OkSuporte. • Desenvolvido por TX Sistemas • Todos os direitos reservados.</p></footer-->
 </body>

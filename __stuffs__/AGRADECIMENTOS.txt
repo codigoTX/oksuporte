@@ -1,0 +1,9 @@
+## Helpers & Inpirations
+
+Where I took my doubts, made my queries and learned a lot of what I used in this project.
+
+- The Net Ninja. https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg
+- Roger Melo (CJRM). https://www.youtube.com/channel/UCmjDevp9Y8r-qi-xueD3Izg
+- B7Web Bonieky.
+- Rocketseat. https://www.rocketseat.com.br/
+- e alguns outros youtubers Dev, blogs, comunidade Stack Overflow and Udemy.
