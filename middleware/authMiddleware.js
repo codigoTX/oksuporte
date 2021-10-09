@@ -4,9 +4,9 @@ const User = require('../models/User');
 const requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
 
-  // check json web token exists & is verified
+  // verifica se o token existe e se é válido.
   if (token) {
-    jwt.verify(token, 'net ninja secret', (err, decodedToken) => {
+    jwt.verify(token, 'txcode', (err, decodedToken) => {
       if (err) {
         console.log(err.message);
         res.redirect('/erro1');
@@ -20,11 +20,11 @@ const requireAuth = (req, res, next) => {
   }
 };
 
-// check current user
+// verifica o usuário logado
 const checkUser = (req, res, next) => {
   const token = req.cookies.jwt;
   if (token) {
-    jwt.verify(token, 'net ninja secret', async (err, decodedToken) => {
+    jwt.verify(token, 'txcode', async (err, decodedToken) => {
       if (err) {
         res.locals.user = null;
         next();
@@ -39,6 +39,5 @@ const checkUser = (req, res, next) => {
     next();
   }
 };
-
 
 module.exports = { requireAuth, checkUser };

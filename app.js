@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
+const authController = require('./controllers/authController');
+
 
 const app = express();
 
@@ -24,7 +26,6 @@ mongoose.connect(dbURI)
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('login'));
 app.get('/home', requireAuth, (req, res) => res.render('template', {pageDetails: { home: true, title: 'ESCOLHA A OPÇÃO DESEJADA'} }));
-app.get('/adduser', requireAuth, (req, res) => res.render('template', {pageDetails: { adduser: true, title: 'GERENCIAMENTO DE USUÁRIOS'} }));
 app.get('/tickets', requireAuth, (req, res) => res.render('template', {pageDetails: { tickets: true, title: 'LISTA DE TICKETS'} }));
 app.get('/orders', requireAuth, (req, res) => res.render('template', {pageDetails: { orders: true, title: 'LISTA DE PEDIDOS'} }));
 app.get('/config', requireAuth, (req, res) => res.render('template', {pageDetails: { config: true, title: 'CONFIGURAÇÕES'} }));

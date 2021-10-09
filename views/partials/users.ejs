@@ -1,0 +1,82 @@
+<body>
+  <main class="users-painel">
+    <!--FORMULÁRIO ADD USUÁRIO-->
+    <h4>Insira as informações do novo usuário</h4>
+    <form action="/users">         
+      <div class="user-datas">
+        <label for="name">Nome</label>
+        <input type="text" name="name" id="name">
+      </br>
+        <label for="email">E-mail</label>
+        <div class="email error"></div>
+        <input type="email" name="email" id="email"> 
+      </br>
+        <label for="password">Senha</label>
+        <div class="password error"></div>
+        <input type="password" name="password" id="password">
+      </div>
+      <div class="permissions">   
+        <h4>Defina o nível de acesso</h4>
+        <label for="#"><input type="radio" onclick="getChecked()" name="user-type" value="viewer" checked>Visualizador</label>
+        <label for="#"><input type="radio" onclick="getChecked()" name="user-type" value="requester">Solicitante</label>         
+        <label for="#"><input type="radio" onclick="getChecked()" name="user-type" value="administrator">Administrador</label>
+      </div> 
+      <button class="btn-black">Cadastrar</button>
+    </form>
+    <ul>
+      <h3>Usuários cadastrados</h3>
+      <li>usuáriiiiiiiiiiiiiiiiii    iiiii - Administrador</li>
+      <li>usuário 2 - Visualizador</li>
+      <li>usuárioiiiiiiiiiiiiiiiiiiiiiiiii - Administrador</li>
+      <li>usuário 3 - Solicitante</li>
+      <li>usuárioiiiiiiiiiiiiiiiii iiiiiiii - Administrador</li>
+      <li>usuário 3 - Solicitante</li>
+      <li>usuário 2 - Visualizador</li>
+      <li>usuárioiiiiiiiiiiiiiiiiiiiiiiiiii - Administrador</li>
+      <li>usuário 3 - Solicitante</li>
+      <li>usuário 2 - Visualizador</li>
+      <li>usuárioiiiii     iiiiiiiiiiiiiiii - Administrador</li>
+      <li>usuário 3 - Solicitante</li>
+    </ul>      
+  </main>
+</body>
+
+<script>
+  const form = document.querySelector('form');
+  const emailError = document.querySelector('.email.error');
+  const passwordError = document.querySelector('.password.error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // reset errors
+    emailError.textContent = '';
+    passwordError.textContent = '';
+
+    // get values
+    const email = form.email.value;
+    const password = form.password.value;
+
+    try {
+      const res = await fetch('/users', { 
+        method: 'POST', 
+        body: JSON.stringify({ email, password }),
+        headers: {'Content-Type': 'application/json'}
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.errors) {
+        emailError.textContent = data.errors.email;
+        passwordError.textContent = data.errors.password;
+      }
+      if (data.user) {
+        location.assign('/users');
+      }
+
+    }
+    catch (err) {
+      console.log(err);
+    }
+
+  });
+</script>

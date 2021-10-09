@@ -14,10 +14,10 @@
       <h3><%=pageDetails.title%></h3>
     </div>  
     <div class="container-logged">
-      <button onclick="userDropdownMenu()" class="btn-info-logged">Usuário </br>(empresa)</button>
+      <button onclick="userDropdownMenu()" class="btn-info-logged"><%= user.email %></br>(empresa)</button>
       <div id="user-dropdown" class="user-dropdown-content">
         <a href="/config">Configurações</a>
-        <a href="/adduser">Gerenciar Usuários</a>
+        <a href="/users">Gerenciar Usuários</a>
         <a href="/help">Ajuda</a>
         <a href="/logout">Sair</a>
       </div>
@@ -28,8 +28,8 @@
     <%- include('partials/home'); -%>    
   <% } %>
 
-  <% if (pageDetails.adduser) { %>
-    <%- include('partials/adduser'); -%>    
+  <% if (pageDetails.users) { %>
+    <%- include('partials/users'); -%>    
   <% } %>
 
   <% if (pageDetails.tickets) { %>

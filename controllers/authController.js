@@ -8,17 +8,17 @@ const handleErrors = (err) => {
 
   // incorrect email
   if (err.message === 'incorrect email') {
-    errors.email = 'That email is not registered';
+    errors.email = 'E-mail e/ou senha incorreto(s).';
   }
 
   // incorrect password
   if (err.message === 'incorrect password') {
-    errors.password = 'That password is incorrect';
+    errors.password = 'E-mail e/ou senha incorreto(s).';
   }
 
   // duplicate email error
   if (err.code === 11000) {
-    errors.email = 'that email is already registered';
+    errors.email = 'Esse e-mail já está cadastrado.';
     return errors;
   }
 
@@ -35,17 +35,18 @@ const handleErrors = (err) => {
   return errors;
 }
 
-// create json web token
+// gera o token
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
-  return jwt.sign({ id }, 'net ninja secret', {
+  return jwt.sign({ id }, 'txcode', {
     expiresIn: maxAge
   });
 };
 
 // controller actions
 module.exports.adduser_get = (req, res) => {
-  res.render('adduser');
+  // res.render('users');
+  res.render('template', {pageDetails: { users: true, title: 'GERENCIAMENTO DE USUÁRIOS'} });
 }
 
 module.exports.login_get = (req, res) => {
@@ -53,12 +54,12 @@ module.exports.login_get = (req, res) => {
 }
 
 module.exports.adduser_post = async (req, res) => {
-  const { email, password } = req.body;
+  const { companyId, name, email, password, createdAt } = req.body;
 
   try {
-    const user = await User.create({ email, password });
-    const token = createToken(user._id);
-    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+    const user = await User.create({ companyId, name, email, password, createdAt });
+    // const token = createToken(user._id);
+    // res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(201).json({ user: user._id });
   }
   catch(err) {
