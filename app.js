@@ -25,7 +25,7 @@ mongoose.connect(dbURI)
 // routes
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('login'));
-app.get('/home', requireAuth, (req, res) => res.render('template', {pageDetails: { home: true, title: 'ESCOLHA A OPÇÃO DESEJADA'} }));
+app.get('/home', requireAuth, (req, res) => res.render('template', {pageDetails: { home: true, title: 'Minino Móveis Planejados'} }));
 app.get('/tickets', requireAuth, (req, res) => res.render('template', {pageDetails: { tickets: true, title: 'LISTA DE TICKETS'} }));
 app.get('/orders', requireAuth, (req, res) => res.render('template', {pageDetails: { orders: true, title: 'LISTA DE PEDIDOS'} }));
 app.get('/config', requireAuth, (req, res) => res.render('template', {pageDetails: { config: true, title: 'CONFIGURAÇÕES'} }));

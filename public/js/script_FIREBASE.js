@@ -19,7 +19,7 @@ function userDropdownMenu() {
 
 //FECHA O MENU DROPDOWN AO CLICAR FORA DAS OPÇÕES.
 window.onclick = function(event) {
-  if (!event.target.matches('.btn-info-logged')) {
+  if (!event.target.matches('.btn-user-info')) {
     let userDropdowns = document.getElementsByClassName("user-dropdown-content");
     
     for (let i = 0; i < userDropdowns.length; i++) {

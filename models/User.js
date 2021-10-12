@@ -6,11 +6,9 @@ const userSchema = new mongoose.Schema({
   companyId: {
     type: String
   },
-  // name: {
-  //   type: String,
-  //   required: [true, 'Por favor insira um nome válido'],
-  //   minlength: 2
-  // },
+  name: {
+    type: String
+  },
   email: {
     type: String,
     required: [true, 'Por favor insira um e-mail'],

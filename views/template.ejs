@@ -9,20 +9,25 @@
 </head>
 <body>
   <header>
-    <a href="/home" class="link-logo-left"><img id="logo-left" src="/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
+    <div class="logo-left">
+      <a href="/home"><img id="logo-left" src="/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
+    </div>
     <div class="page-title">
-      <h3><%=pageDetails.title%></h3>
+      <h3><%= pageDetails.title %></h3>
+      <p>LOGO DA EMPRESA</p>
     </div>  
     <div class="container-logged">
-      <button onclick="userDropdownMenu()" class="btn-info-logged"><%= user.email %></br>(empresa)</button>
+      <button class="btn-user-info" onclick="userDropdownMenu()"><%= user.name %></br><%= user.companyId %></button>
+      <img class="btn-user-info" src="https://img.icons8.com/color/48/000000/settings--v1.png" alt="menu_config" onclick="userDropdownMenu()">
       <div id="user-dropdown" class="user-dropdown-content">
         <a href="/config">Configurações</a>
         <a href="/users">Gerenciar Usuários</a>
         <a href="/help">Ajuda</a>
         <a href="/logout">Sair</a>
       </div>
-    </div>        
+    </div> 
   </header> 
+
     
   <% if (pageDetails.home) { %>
     <%- include('partials/home'); -%>    
