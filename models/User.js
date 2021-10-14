@@ -3,7 +3,7 @@ const { isEmail } = require('validator');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  companyId: {
+  company: {
     type: String
   },
   name: {
@@ -21,6 +21,9 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Por favor insira uma senha.'],
     minlength: [6, 'A senha precisa ter no mínimo 6 caractéres']
   },
+  userType: {
+    type: String
+  },
   createAt: {
     type: Date
   }
@@ -33,7 +36,6 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
-// verificando se os dados informados já foram cadastrados
 userSchema.statics.login = async function(email, password) {
   const user = await this.findOne({ email });
   if (user) {

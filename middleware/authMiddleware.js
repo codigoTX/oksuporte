@@ -12,6 +12,7 @@ const requireAuth = (req, res, next) => {
         res.redirect('/erro1');
       } else {
         console.log(decodedToken);
+        // res.json({ userCompany: decodedToken.company })
         next();
       }
     });
@@ -39,5 +40,6 @@ const checkUser = (req, res, next) => {
     next();
   }
 };
+
 
 module.exports = { requireAuth, checkUser };

@@ -43,9 +43,8 @@ const createToken = (id) => {
   });
 };
 
-// controller actions
-module.exports.adduser_get = (req, res) => {
-  // res.render('users');
+// Ações das controllers
+module.exports.adduser_get = (req, res) => {    
   res.render('template', {pageDetails: { users: true, title: 'GERENCIAMENTO DE USUÁRIOS'} });
 }
 
@@ -54,10 +53,10 @@ module.exports.login_get = (req, res) => {
 }
 
 module.exports.adduser_post = async (req, res) => {
-  const { companyId, name, email, password, createdAt } = req.body;
+  const { company, name, email, password, userType, createdAt } = req.body;
 
   try {
-    const user = await User.create({ companyId, name, email, password, createdAt });
+    const user = await User.create({ company, name, email, password, userType, createdAt });
     // const token = createToken(user._id);
     // res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(201).json({ user: user._id });
@@ -76,14 +75,12 @@ module.exports.login_post = async (req, res) => {
     const user = await User.login(email, password);
     const token = createToken(user._id);
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-    res.status(200).json({ user: user._id });
-    
+    res.status(200).json({ user: user._id });    
   } 
   catch (err) {
     const errors = handleErrors(err);
     res.status(400).json({ errors });
   }
-
 }
 
 module.exports.logout_get = (req, res) => {

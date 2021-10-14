@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <div class="logo-left">
+    <div>
       <a href="/home"><img id="logo-left" src="/images/logo_oksuporte.png" alt="logo_oksuporte"></a>
     </div>
     <div class="page-title">
@@ -17,7 +17,7 @@
       <p>LOGO DA EMPRESA</p>
     </div>  
     <div class="container-logged">
-      <button class="btn-user-info" onclick="userDropdownMenu()"><%= user.name %></br><%= user.companyId %></button>
+      <button class="btn-user-info" onclick="userDropdownMenu()"><%= user.name %></br><%= user.company %></button>
       <img class="btn-user-info" src="https://img.icons8.com/color/48/000000/settings--v1.png" alt="menu_config" onclick="userDropdownMenu()">
       <div id="user-dropdown" class="user-dropdown-content">
         <a href="/config">Configurações</a>
@@ -27,7 +27,6 @@
       </div>
     </div> 
   </header> 
-
     
   <% if (pageDetails.home) { %>
     <%- include('partials/home'); -%>    

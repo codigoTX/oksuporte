@@ -17,7 +17,7 @@
   padding: 0;
   color:var(--fc);
   font-family: 'Argentum Sans', sans-serif;
-  transition: background 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 html{
@@ -30,11 +30,9 @@ header{
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
+  /* background-color: red; */
 }
- header div{
-  margin: 0 1em;
- }
-
+ 
 body{  
   height: 100%;
   width: 100%; 
@@ -71,30 +69,32 @@ footer{
 
 #logo-left{
   width: 5rem;
-  height: 2rem;
   margin-top: 2rem;
+  /* background-color: purple; */
 } 
 
 .page-title{
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: flex;
   flex-direction: column-reverse;
   text-align: center;  
+  /* background-color: purple; */
 }
 .reduced-layout{
   display: none;
 }
 
 .container-logged{
-  height: fit-content;
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* background-color: purple; */
 }
   .container-logged button{
     font-size: 0.7rem;
-    float: right;
     border-style: none;
     cursor: pointer;
-    display: flex;
     background-color: transparent;
   }
   .btn-user-info:hover, .btn-user-info:focus{
@@ -112,7 +112,7 @@ footer{
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  margin-left: -1.5rem;
+  margin-top: 2.5em;
 }
   .user-dropdown-content a{
     padding: 0.5rem;
@@ -226,14 +226,19 @@ footer{
 .container-menu-home{
   width: 50%;
   height: 20em;
-  margin: 15em auto 0 auto;
+  margin: 5em auto 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   }
   .container-menu-home div img{
-    height: 8em;
+    height: 5em;
+    color: rgb(92, 47, 255);
+  }
+  .container-menu-home p{
+    margin-top: 1em;
+    font-size: 1.5em;
   }
   .container-menu-home a{ 
     display: flex;
@@ -249,11 +254,10 @@ footer{
     font-weight: bolder;
   }  
 
-  .container-menu-home a:hover{
+  .container-menu-home p:hover{
     background-color:transparent;
     border-color: #33CC99;
     color: #33CC99;
-    font-weight: bolder;
   }
 
   @media (max-width: 1200px) {
@@ -290,7 +294,7 @@ footer{
       grid-template-columns: 1fr 1fr;
       }
       .container-menu-home div img{
-        height: 8em;
+        height: 6em;
       }
   }
 

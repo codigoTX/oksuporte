@@ -4,6 +4,9 @@
     <h4>Insira as informações do novo usuário</h4>
     <form action="/users">         
       <div class="user-datas">
+        <!-- <label for="company">Empresa</label>
+        <input type="text" name="company" id="company" readonly> -->
+      </br> 
         <label for="name">Nome</label>
         <input type="text" name="name" id="name">
       </br>
@@ -17,9 +20,9 @@
       </div>
       <div class="permissions">   
         <h4>Defina o nível de acesso</h4>
-        <label for="#"><input type="radio" onclick="getChecked()" name="user-type" value="viewer" checked>Visualizador</label>
-        <label for="#"><input type="radio" onclick="getChecked()" name="user-type" value="requester">Solicitante</label>         
-        <label for="#"><input type="radio" onclick="getChecked()" name="user-type" value="administrator">Administrador</label>
+        <label for="Visualizador"><input type="radio" onclick="getChecked()" id="v" name="utype" value="viewer" checked>Visualizador</label>
+        <label for="Solicitante"><input type="radio" onclick="getChecked()" id="s" name="utype" value="requester">Solicitante</label>         
+        <!-- <label for="Administrador"><input type="radio" onclick="getChecked()" id="a" name="utype" value="administrator">Administrador</label> -->
       </div> 
       <button class="btn-black">Cadastrar</button>
     </form>
@@ -46,6 +49,8 @@
   const emailError = document.querySelector('.email.error');
   const passwordError = document.querySelector('.password.error');
 
+  
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -53,17 +58,21 @@
     emailError.textContent = '';
     passwordError.textContent = '';
 
+      
+
+
     // get values
-    const companyId = "empresa";
+    const company = userCompany;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const userType = form.utype.value;
     const createdAt = Date.now();
 
     try {
       const res = await fetch('/users', { 
         method: 'POST', 
-        body: JSON.stringify({ companyId, name, email, password, createdAt }),
+        body: JSON.stringify({ company, name, email, password, userType, createdAt }),
         headers: {'Content-Type': 'application/json'}
       });
       const data = await res.json();
@@ -75,7 +84,6 @@
       if (data.user) {
         location.assign('/users');
       }
-
     }
     catch (err) {
       console.log(err);
