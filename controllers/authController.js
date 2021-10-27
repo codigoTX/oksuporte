@@ -23,7 +23,7 @@ const handleErrors = (err) => {
   }
 
   // validation errors
-  if (err.message.includes('user validation failed')) {
+  if (err.message.includes('falha na validação do usuário')) {
     // console.log(err);
     Object.values(err.errors).forEach(({ properties }) => {
       // console.log(val);
@@ -45,7 +45,16 @@ const createToken = (id) => {
 
 // Ações das controllers
 module.exports.adduser_get = (req, res) => {    
-  res.render('template', {pageDetails: { users: true, title: 'GERENCIAMENTO DE USUÁRIOS'} });
+
+  User.find({}, function(err, users){
+    res.render('template', {
+      pageDetails: {
+        usersPage: true,
+        title: 'GERENCIAMENTO DE USUÁRIOS'
+      },
+      usersList: users
+    })
+  })
 }
 
 module.exports.login_get = (req, res) => {

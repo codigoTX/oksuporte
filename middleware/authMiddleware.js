@@ -12,7 +12,6 @@ const requireAuth = (req, res, next) => {
         res.redirect('/erro1');
       } else {
         console.log(decodedToken);
-        // res.json({ userCompany: decodedToken.company })
         next();
       }
     });
@@ -30,7 +29,7 @@ const checkUser = (req, res, next) => {
         res.locals.user = null;
         next();
       } else {
-        let user = await User.findById(decodedToken.id);
+        var user = await User.findById(decodedToken.id);
         res.locals.user = user;
         next();
       }

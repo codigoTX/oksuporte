@@ -423,7 +423,7 @@ footer{
   align-items: center;
   justify-content: center;
   background: rgba(12, 12, 12, 0.9);
-  z-index: 2000;
+  z-index: 100;
 }  
   .modal-open-ticket.show-modal{
     display: flex;
@@ -575,50 +575,59 @@ footer{
 ///////////////////////////////////////////////////////////////////////////////////////////*/
 
 /*(INÍCIO)-GERENCIAMENTO DE USUÁRIOS-------------------------------------------------------*/
-.users-painel{
-  margin-top: 5em;
-  width: fit-content;
-  display: flex;
+.users-main{
+  margin-top:3em;
+  display: flex;  
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: flex-start;
+  /* background-color: purple; */
 }
-  .users-painel form{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-  }
-  .users-painel ul{
-    width: 50%;
-    list-style: none;
-  }
-  .users-painel button{
-    margin-top: 2em;
-  } 
-.user-datas input{
-  width: 70%;
-  border-color:transparent;
-  background-color: var(--bc);
-  border-bottom-color: var(--fc);
-  border-width: 1px;
-  outline: 0;
-  color: var(--ic);
-}
-/* .user-datas input:focus::-webkit-input-placeholder{
-  color: transparent;
-} */
-.user-datas{
-display: flex;
-flex-direction: column;
-}
+  .users-main form{
+    width: fit-content;
+    display: grid;
+    padding: 2em;
+    /* background-color: blue; */
+  }  
+    .users-main ul{
+      margin-left: 4em;
+      list-style: none;
+      padding: 2em;
+      border-style: solid;
+      border-width: thin;
+      border-radius: 0.5em;
+      border-color:var(--fc);
+      /* background-color: #33cc99; */
+    }  
+    .users-main ul li{
+      margin-top: 0.5em;
+    }
+    .users-main ul li a{
+      text-decoration: none;
+    }
 
+.user-data{
+  margin-bottom: 0.5em;
+}  
+  .user-data input{
+    width: 100%;
+    border-bottom-color: var(--fc);
+    border-width: 1px;
+    outline: 0;
+    color: var(--ic);
+  }  
+  
 .permissions{
-  margin-top: 2em;
-  display: flex;
-  flex-direction: column;
+  width: fit-content;
+  padding: 1em 0;
+}
+.permissions h4{
+  margin-bottom: 1em;
 }
 .permissions label{
-  margin-top: 1em;
-}  
+  margin-right: 1em;
+}
+
      
 /*-------------------------------------------------------------(FIM)-GERENCIAMENTO DE  USUÁRIOS  
 /////////////////////////////////////////////////////////////////////////////////////////////*/

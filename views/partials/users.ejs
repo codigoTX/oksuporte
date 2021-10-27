@@ -1,93 +1,90 @@
 <body>
-  <main class="users-painel">
+  <main class="users-main">
     <!--FORMULÁRIO ADD USUÁRIO-->
-    <h4>Insira as informações do novo usuário</h4>
     <form action="/users">         
-      <div class="user-datas">
-        <!-- <label for="company">Empresa</label>
-        <input type="text" name="company" id="company" readonly> -->
-      </br> 
+      <h3>Insira as informações do novo usuário</h3>
+      </br>
+      <div class="user-data">
+        <label for="company">Empresa</label>
+        <p class="company error"></p>
+        <input type="text" name="company" value="<%= user.company %>" id="company" readonly>
+      </div> 
+      <div class="user-data">
         <label for="name">Nome</label>
+        <p class="name error"></p>
         <input type="text" name="name" id="name">
-      </br>
+      </div>
+      <div class="user-data">
         <label for="email">E-mail</label>
-        <div class="email error"></div>
-        <input type="email" name="email" id="email"> 
-      </br>
+        <p class="email error"></p>
+        <input type="email" name="email" id="email">
+      </div>         
+      <div class="user-data">
         <label for="password">Senha</label>
-        <div class="password error"></div>
+        <p class="password error"></p>
         <input type="password" name="password" id="password">
       </div>
       <div class="permissions">   
         <h4>Defina o nível de acesso</h4>
         <label for="Visualizador"><input type="radio" onclick="getChecked()" id="v" name="utype" value="viewer" checked>Visualizador</label>
         <label for="Solicitante"><input type="radio" onclick="getChecked()" id="s" name="utype" value="requester">Solicitante</label>         
-        <!-- <label for="Administrador"><input type="radio" onclick="getChecked()" id="a" name="utype" value="administrator">Administrador</label> -->
+        <label for="Administrador"><input type="radio" onclick="getChecked()" id="a" name="utype" value="administrator">Administrador</label>
       </div> 
       <button class="btn-black">Cadastrar</button>
     </form>
     <ul>
       <h3>Usuários cadastrados</h3>
-      <li>usuáriiiiiiiiiiiiiiiiii    iiiii - Administrador</li>
-      <li>usuário 2 - Visualizador</li>
-      <li>usuárioiiiiiiiiiiiiiiiiiiiiiiiii - Administrador</li>
-      <li>usuário 3 - Solicitante</li>
-      <li>usuárioiiiiiiiiiiiiiiiii iiiiiiii - Administrador</li>
-      <li>usuário 3 - Solicitante</li>
-      <li>usuário 2 - Visualizador</li>
-      <li>usuárioiiiiiiiiiiiiiiiiiiiiiiiiii - Administrador</li>
-      <li>usuário 3 - Solicitante</li>
-      <li>usuário 2 - Visualizador</li>
-      <li>usuárioiiiii     iiiiiiiiiiiiiiii - Administrador</li>
-      <li>usuário 3 - Solicitante</li>
+      </br>
+      <%usersList.forEach(user => {%>
+        <li><a href=""><%= user.name %></a> - <span>(<%= user.userType %>)</span></li>      
+      <% }) %>
     </ul>      
   </main>
 </body>
 
 <script>
-  const form = document.querySelector('form');
-  const emailError = document.querySelector('.email.error');
-  const passwordError = document.querySelector('.password.error');
-
   
+    const form = document.querySelector('form');
+    const emailError = document.querySelector('.email.error');
+    const passwordError = document.querySelector('.password.error');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      // reset errors
+      emailError.textContent = '';
+      passwordError.textContent = '';  
 
-    // reset errors
-    emailError.textContent = '';
-    passwordError.textContent = '';
-
-      
+    //------------------------------------------------------------
+    
 
 
-    // get values
-    const company = userCompany;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    const userType = form.utype.value;
-    const createdAt = Date.now();
-
-    try {
-      const res = await fetch('/users', { 
-        method: 'POST', 
-        body: JSON.stringify({ company, name, email, password, userType, createdAt }),
-        headers: {'Content-Type': 'application/json'}
-      });
-      const data = await res.json();
-      console.log(data);
-      if (data.errors) {
-        emailError.textContent = data.errors.email;
-        passwordError.textContent = data.errors.password;
+    //------------------------------------------------------------      
+    
+      // get values
+      const company = form.company.value;
+      const name = form.name.value;
+      const email = form.email.value;
+      const password = form.password.value;
+      const userType = form.utype.value;
+      const createdAt = Date.now();
+      try {
+        const res = await fetch('/users', { 
+          method: 'POST', 
+          body: JSON.stringify({ company, name, email, password, userType, createdAt }),
+          headers: {'Content-Type': 'application/json'}
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data.errors) {
+          emailError.textContent = data.errors.email;
+          passwordError.textContent = data.errors.password;
+        }
+        if (data.user) {
+          location.assign('/users');
+        }
       }
-      if (data.user) {
-        location.assign('/users');
+      catch (err) {
+        console.log(err);
       }
-    }
-    catch (err) {
-      console.log(err);
-    }
-
-  });
+    });
 </script>

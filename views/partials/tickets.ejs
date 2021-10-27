@@ -1,14 +1,23 @@
     <main>
-      <button class="btn-green" onclick="openModalTickets();">Novo</button>
+      <button class="btn-green" onclick="openModalTickets()">Novo</button>
       <table data-js="tickets-list" id="tb-tickets" class="table-support">
         <tr id="tr-tickets">
           <th>#</th>
           <th>Título</th>
           <th>Usuário</th>
-          <th>Empresa</th>
           <th>Abertura</th>
           <th>Situação</th>
         </tr>
+        <%ticketsList.forEach(ticket => {%>
+          <tr>
+            <td><%= ticket._id %></td>
+            <td><%= ticket.title %></td>
+            <td><%= ticket.user %></td>
+            <td><%= ticket.createdAt %></td>
+            <td><%= ticket.closedAt %></td>
+            <td><%= ticket.status %></td>
+          </tr>          
+        <%})%>        
       </table>
 
       <!--FORMULÁRIO ABERTURA DE CHAMADO-->
