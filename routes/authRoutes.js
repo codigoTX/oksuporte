@@ -15,6 +15,4 @@ router.post('/users', authController.adduser_post);
 router.get('/tickets', requireAuth, pagesController.addTicket_get);
 router.post('/tickets', requireAuth, pagesController.addTicket_post);
 
-
 module.exports = router;
-

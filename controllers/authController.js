@@ -16,7 +16,7 @@ const handleErrors = (err) => {
     errors.password = 'E-mail e/ou senha incorreto(s).';
   }
 
-  // duplicate email error
+  // alerta sobre e-mail já cadastrado
   if (err.code === 11000) {
     errors.email = 'Esse e-mail já está cadastrado.';
     return errors;
@@ -37,8 +37,8 @@ const handleErrors = (err) => {
 
 // gera o token
 const maxAge = 3 * 24 * 60 * 60;
-const createToken = (id) => {
-  return jwt.sign({ id }, 'txcode', {
+const createToken = (id, name) => {
+  return jwt.sign({ id, name }, 'txcode', {
     expiresIn: maxAge
   });
 };
@@ -82,7 +82,9 @@ module.exports.login_post = async (req, res) => {
 
   try {
     const user = await User.login(email, password);
-    const token = createToken(user._id);
+    const token = createToken(user._id, user.name, user.email, user.company, user.userType, user.createdAt );
+
+    
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(200).json({ user: user._id });    
   } 

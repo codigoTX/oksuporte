@@ -50,17 +50,12 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      // reset errors
+
+      // resetando as variáveis de erro
       emailError.textContent = '';
       passwordError.textContent = '';  
-
-    //------------------------------------------------------------
-    
-
-
-    //------------------------------------------------------------      
-    
-      // get values
+   
+      // pegando valores do formulário
       const company = form.company.value;
       const name = form.name.value;
       const email = form.email.value;

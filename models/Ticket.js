@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const User = require('../models/User');
 
 
 const ticketSchema = new mongoose.Schema({
   user: {
-    type: String, default: "User.user.name"
+    type: String
   },
   title: {
     type: String,
