@@ -12,10 +12,10 @@
           <tr>
             <td><%= ticket._id %></td>
             <td><%= ticket.title %></td>
-            <td><%= ticket.user %></td>
+            <td><%= ticket.ticketOwner %></td>
             <td><%= ticket.createdAt %></td>
-            <td><%= ticket.closedAt %></td>
             <td><%= ticket.status %></td>
+            <td><%= ticket.closedAt %></td>
           </tr>          
         <%})%>        
       </table>

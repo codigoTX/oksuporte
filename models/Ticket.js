@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 
 const ticketSchema = new mongoose.Schema({
-  user: {
+  userId: {
+    type: String
+  },
+  ticketOwner:{
     type: String
   },
   title: {
@@ -22,7 +25,7 @@ const ticketSchema = new mongoose.Schema({
   createdAt: {
     type: Date, default: Date.now
   },
-  finished: {
+  status: {
     type: Boolean, default: false
   },
   closedAt: {

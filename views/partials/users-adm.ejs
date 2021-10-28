@@ -4,7 +4,11 @@
     <form action="/users">         
       <h3>Insira as informações do novo usuário</h3>
       </br>
-      
+      <div class="user-data">
+        <label for="company">Empresa</label>
+        <p class="company error"></p>
+        <input type="text" name="company" id="company" readonly>
+      </div> 
       <div class="user-data">
         <label for="name">Nome</label>
         <p class="name error"></p>
@@ -24,6 +28,7 @@
         <h4>Defina o nível de acesso</h4>
         <label for="Visualizador"><input type="radio" onclick="getChecked()" id="v" name="utype" value="viewer" checked>Visualizador</label>
         <label for="Solicitante"><input type="radio" onclick="getChecked()" id="s" name="utype" value="requester">Solicitante</label>         
+        <label for="Administrador"><input type="radio" onclick="getChecked()" id="a" name="utype" value="administrator">Administrador</label>
       </div> 
       <button class="btn-black">Cadastrar</button>
     </form>
@@ -51,6 +56,7 @@
       passwordError.textContent = '';  
    
       // pegando valores do formulário
+      const company = user.name;
       const name = form.name.value;
       const email = form.email.value;
       const password = form.password.value;
@@ -59,7 +65,7 @@
       try {
         const res = await fetch('/users', { 
           method: 'POST', 
-          body: JSON.stringify({ company: "nome da empresa", name, email, password, userType, createdAt }),
+          body: JSON.stringify({ company, name, email, password, userType, createdAt }),
           headers: {'Content-Type': 'application/json'}
         });
         const data = await res.json();
