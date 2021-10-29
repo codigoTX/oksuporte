@@ -2,10 +2,17 @@ const mongoose = require('mongoose');
 
 
 const orderSchema = new mongoose.Schema({
+  
   userId: {
     type: String
   },
-  requester:{
+  requester: {
+    type: String
+  },
+  company:{
+    type: String
+  },
+  finalClient: {
     type: String
   },
   title: {
@@ -19,7 +26,7 @@ const orderSchema = new mongoose.Schema({
     type: String
   },
   startedAt: {
-    type: Date, default: Date.now
+    type: Date, default: new Date
   },
   concludedAt: {
     type: Date

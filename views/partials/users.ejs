@@ -55,7 +55,6 @@
       const email = form.email.value;
       const password = form.password.value;
       const userType = form.utype.value;
-      const createdAt = Date.now();
       try {
         const res = await fetch('/users', { 
           method: 'POST', 

@@ -14,7 +14,7 @@
     </div>
     <div class="page-title">
       <h3><%= pageDetails.title %></h3>
-      <p>LOGO DA EMPRESA</p>
+      <p><img src="" alt="logo_empresa"></p>
     </div>  
     <div class="container-logged">
       <button class="btn-user-info" onclick="userDropdownMenu()"><%= user.name %></br><%= user.company %></button>
@@ -40,7 +40,7 @@
     <%- include('partials/tickets'); -%>    
   <% } %>
 
-  <% if (pageDetails.orders) { %>
+  <% if (pageDetails.ordersPage) { %>
     <%- include('partials/orders'); -%>    
   <% } %>
 

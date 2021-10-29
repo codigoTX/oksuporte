@@ -1,6 +1,7 @@
  
     <main>
-      <table id="table-orders">
+      <button class="btn-green" onclick="openModalOrders()">Novo</button>
+      <!-- <table id="table-orders">
         <tr>
         <th>ID</th>
         <th>CLIENTE FINAL</th>
@@ -30,14 +31,65 @@
           <td><button class="os-sts-menu" onclick="openModalOrders();"><p></p></button></td>
           <td><button class="order-details" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button></td>
         </tr>
+      </table> -->
 
+      <!--FORMULÁRIO DE PEDIDO-->
+      <div class="modal-open-order">
+        <form id="orders-form" class="fm-nw-order">
+          <p>Novo Pedido</p>
+          <div class="fm-group g1">
+            <label for="">Cliente</label>
+            <input type="text" name="finalClient" id="finalClient">
+          </div>
+          <div class="fm-group g1">
+            <label for="">Título</label>
+            <input type="text" name="title" id="title">
+          </div>             
+          <div class="fm-group g3">
+            <label for="">Observações</label>
+            <textarea rows="10" name="obs" id="obs"></textarea>
+          </div>         
+          <div class="fm-group g4"> 
+            <label for="">Projeto</label> 
+            <input type="file" name="attachment" id="attachment">     
+          </div> 
+          <div class="g5">
+            <a class="btn-cancel" href="orders">Cancelar</a>  
+            <button type="submit" class="btn-black">Enviar</button>
+          </div>      
+        </form> 
+      </div> 
+
+      <table data-js="orders-list" id="table-orders" class="table-orders">
+        <tr id="tr-orders">
+          <th>ID</th>
+          <th>REVENDA</th>
+          <th>USUÁRIO</th>
+          <th>CLIENTE FINAL</th>
+          <th>VALOR</th>
+          <th>INÍCIO</th>
+          <th>SITUAÇÃO</th>
+        </tr>
+        <%ordersList.forEach(order => {%>
+          <tr>
+            <td><%= order._id %></td>
+            <td><%= order.company %></td>
+            <td><%= order.requester %></td>
+            <td><%= order.finalClient %></td>
+            <td><%= order.price %></td>
+            <td><%= order.startedAt.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %> - <%= order.startedAt.toLocaleDateString('pt-BR', {timeStyle: 'short'}) %></td>
+            <td><%= order.stage %></td>
+          </tr>          
+        <%})%>        
       </table>
     </main>
+  <script src="js/orders.js"></script>
+
 
 
 
   <!-- MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL -->
-    <div id="os-modal" class="modal-container">
+    <!-- <div id="os-modal" class="modal-container">
       <div class="modal">
         <p>Situação do Pedido ("ID do pedido")</p>  
         <input type="radio" onclick="getChecked()" id="received" value="Recebido" name="sts-options">
@@ -51,10 +103,5 @@
         <button class="btn-cancel-modal">Cancelar</button>
         <button class="btn-save-modal">Salvar</button>  
       </div>
-    </div>
-
+    </div>  -->
   <!-- MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL -->
-    <script>
-      alert(locals.user.name);
-    </script>
-  </body>

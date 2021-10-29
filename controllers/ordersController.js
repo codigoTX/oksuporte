@@ -28,14 +28,16 @@ module.exports.addOrder_post = async (req, res) => {
   token = req.cookies.jwt;    
   jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, decodedToken) => {    
     var user = await User.findById(decodedToken.id); 
-    let loggedUser = {id: user.id, name: user.name};   
+    let loggedUser = {id: user.id, name: user.name, company: user.company};   
   
-  const { title, obs, attachment, startedAt, stage  } = req.body;
+  const { userId, requester, company, finalClient, title, obs, attachment, startedAt, concludedAt, interactions, price, stage } = req.body;
 
   try {
     const order = await Order.create({ 
       userId: loggedUser.id, 
       requester: loggedUser.name, 
+      company: loggedUser.company,
+      finalClient,
       title, 
       obs,       
       attachment, 

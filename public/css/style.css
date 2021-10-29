@@ -464,7 +464,7 @@ footer{
 
 /*(INÍCIO)-PEDIDOS---------------------------------------------------------------------------*/
 #table-orders{    
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   width: 100%;
   margin: auto;
   font-size: 0.7rem;
@@ -482,12 +482,29 @@ footer{
     border-bottom-color:#33CC99;
   }  
   #table-orders tr:nth-child(odd){
-    background-color: green;
+    background-color: rgb(200, 241, 200);
   } 
   .order-details{
     width: 3.5rem;
     height: 1.5rem;
   }
+
+  .modal-open-order{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(12, 12, 12, 0.9);
+    z-index: 100;
+  }  
+    .modal-open-order.show-modal{
+      display: flex;
+    }  
+
 
 /*-----MODAL-----*/
 .modal-container{

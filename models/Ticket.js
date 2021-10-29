@@ -26,7 +26,7 @@ const ticketSchema = new mongoose.Schema({
     type: String
   },
   openedAt: {
-    type: Date, default: Date
+    type: Date, default: new Date
   },
   closedAt: {
     type: Date
