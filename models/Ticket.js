@@ -5,7 +5,7 @@ const ticketSchema = new mongoose.Schema({
   userId: {
     type: String
   },
-  companyId: {
+  company: {
     type: String
   },
   requester:{
@@ -26,13 +26,13 @@ const ticketSchema = new mongoose.Schema({
     type: String
   },
   openedAt: {
-    type: Date, default: Date.now
-  },
-  status: {
-    type: Boolean, default: true
+    type: Date, default: Date
   },
   closedAt: {
     type: Date
+  },
+  status: {
+    type: Boolean, default: true
   },
   interactions:{
     type: Array

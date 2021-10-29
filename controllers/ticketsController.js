@@ -30,7 +30,7 @@ module.exports.addTicket_post = async (req, res) => {
     var user = await User.findById(decodedToken.id); 
     let loggedUser = {id: user.id, name: user.name, company: user.company};   
   
-  const { title, serial, description, attachment, openedAt, status, closedAt  } = req.body;
+  const { userId, company, requester, title, serial, description, attachment, openedAt, closedAt, status, interactions  } = req.body;
 
   try {
     const ticket = await Ticket.create({ 
@@ -52,6 +52,6 @@ module.exports.addTicket_post = async (req, res) => {
   catch(err) {
     // const errors = handleErrors(err);
     console.log("erro ao tentar cadastrar ticket");
-    res.status(400).json({ errors });
+    // res.status(400).json({ errors });
   } 
 })}
