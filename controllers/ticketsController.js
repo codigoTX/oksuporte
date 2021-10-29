@@ -9,43 +9,49 @@ module.exports.addTicket_get = (req, res) => {
   jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, decodedToken) => {    
     var user = await User.findById(decodedToken.id); 
     console.log(user);
-    var loggedUser = {id: user.id, name: user.name}; 
-    
+    let loggedUser = {id: user.id, name: user.name};     
 
     Ticket.find({userId: loggedUser.id}, function(err, tickets){
+
       res.render('template', {
         pageDetails: {
           ticketsPage: true,
-          title: 'GERENCIAMENTO DE USUÁRIOS'
+          title: 'LISTA DE CHAMADOS'
         },
         ticketsList: tickets
       })
     })
   });    
-}//fim do addTicket_get
-
+}
 
 module.exports.addTicket_post = async (req, res) => {
   token = req.cookies.jwt;    
   jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, decodedToken) => {    
     var user = await User.findById(decodedToken.id); 
-    // var loggedUser = user.id;
-    // var loggedUserName = user.name;
-    var loggedUser = {id: user.id, name: user.name}; 
-
+    let loggedUser = {id: user.id, name: user.name, company: user.company};   
   
-  
-  
-  const { userId, title, serial, description, attachment, createdAt, finished, closedAt } = req.body;
+  const { title, serial, description, attachment, openedAt, status, closedAt  } = req.body;
 
   try {
-    const ticket = await Ticket.create({ userId: loggedUser.id, ticketOwner: loggedUser.name, title, serial, description, attachment, createdAt, status, closedAt });
+    const ticket = await Ticket.create({ 
+      userId: loggedUser.id, 
+      company: loggedUser.company,
+      requester: loggedUser.name, 
+      title, 
+      serial, 
+      description, 
+      attachment, 
+      openedAt,
+      closedAt,
+      status, 
+      interactions // receberá um array de strings, essas strings serão as mensagens 
+    });
     console.log("ticket cadastrado com sucesso");
     res.status(201).json({ ticket: ticket._id });
   }
   catch(err) {
     // const errors = handleErrors(err);
     console.log("erro ao tentar cadastrar ticket");
-    // res.status(400).json({ errors });
+    res.status(400).json({ errors });
   } 
 })}

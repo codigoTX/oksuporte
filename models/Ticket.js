@@ -5,7 +5,10 @@ const ticketSchema = new mongoose.Schema({
   userId: {
     type: String
   },
-  ticketOwner:{
+  companyId: {
+    type: String
+  },
+  requester:{
     type: String
   },
   title: {
@@ -22,14 +25,17 @@ const ticketSchema = new mongoose.Schema({
   attachment: {
     type: String
   },
-  createdAt: {
+  openedAt: {
     type: Date, default: Date.now
   },
   status: {
-    type: Boolean, default: false
+    type: Boolean, default: true
   },
   closedAt: {
     type: Date
+  },
+  interactions:{
+    type: Array
   }
 });
 

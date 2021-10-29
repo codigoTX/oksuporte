@@ -4,6 +4,7 @@
         <tr id="tr-tickets">
           <th>#</th>
           <th>Título</th>
+          <th>Usuário</th>
           <th>Abertura</th>
           <th>Situação</th>
         </tr>
@@ -11,6 +12,7 @@
           <tr>
             <td><%= ticket._id %></td>
             <td><%= ticket.title %></td>
+            <td><%= ticket.requester %></td>
             <td><%= ticket.openedAt.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %> - <%= ticket.openedAt.toLocaleDateString('pt-BR', {timeStyle: 'short'}) %></td>
             <td><%= ticket.status %></td>
             <td><%= ticket.closedAt %></td>
