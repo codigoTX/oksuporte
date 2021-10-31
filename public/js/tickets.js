@@ -18,18 +18,17 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault()
   // resetando as variáveis de erros
   // emailError.textContent = ''
-  // Recebendo valores do formulário
-  // const user = ??????;
+
+  // Recebendo valores do formulário  
   const title = form.title.value;
   const serial = form.serial.value;
   const description = form.description.value;
   const attachment = form.attachment.value;
-  const createdAt = new Date
-  // const closedAt = '';
+  const openedAt = new Date
   try {
     const res = await fetch('/tickets', { 
       method: 'POST', 
-      body: JSON.stringify({ title, serial, description, attachment, createdAt }),
+      body: JSON.stringify({ title, serial, description, attachment, openedAt }),
       headers: {'Content-Type': 'application/json'}
     });
     const data = await res.json();

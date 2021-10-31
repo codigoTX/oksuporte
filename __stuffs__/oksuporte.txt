@@ -1,35 +1,35 @@
 OBJETIVO
 
-Possibilitar ao gerente, parceiros e produção um acompanhamento em tempo real dos pedidos enviados à fabrica, desde do recebimento, conferência, produção e entrega final.
+Possibilitar ao gerente, parceiros e produï¿½ï¿½o um acompanhamento em tempo real dos pedidos enviados ï¿½ fabrica, desde do recebimento, conferï¿½ncia, produï¿½ï¿½o e entrega final.
 
-BENEFÍCIOS
-- Celeridade na troca de informações entre parceiros x gerencia x produção.
+BENEFï¿½CIOS
+- Celeridade na troca de informaï¿½ï¿½es entre parceiros x gerencia x produï¿½ï¿½o.
 - Economia de papel.
-- Centralização das informações, evitando confusões com muitos e-mails com projetos anexados.
-- Relatórios organizados de pedidos por período e por parceiro.
+- Centralizaï¿½ï¿½o das informaï¿½ï¿½es, evitando confusï¿½es com muitos e-mails com projetos anexados.
+- Relatï¿½rios organizados de pedidos por perï¿½odo e por parceiro.
 
 
-CARACTERÍSTICAS
-- Sistema online, controle de acesso com login e senha para a fábrica e para os usuários, por se tratar de um sistema de acompanhamento em tempo real, deverá emitir um alerta e enviar um e-mail a cada evolução do pedido ou nova mensagem inserida.
+CARACTERï¿½STICAS
+- Sistema online, controle de acesso com login e senha para a fï¿½brica e para os usuï¿½rios, por se tratar de um sistema de acompanhamento em tempo real, deverï¿½ emitir um alerta e enviar um e-mail a cada evoluï¿½ï¿½o do pedido ou nova mensagem inserida.
 
 
 FERRAMENTAS
 - Enviar os projetos pelo sistema anexando o arquivo.
-- Enviar mensagens para destinatários pertinentes.
+- Enviar mensagens para destinatï¿½rios pertinentes.
 
 
-NÍVEIS DE USUÁRIOS
+Nï¿½VEIS DE USUï¿½RIOS
  
-Fábrica gerente
-- Acompanha o andamento da produção, identifica atrasos, inclui aditivos e correções.
-- Pode rejeitar ou cancelar o pedido. (Necessário inserir justificativa que será mostrada ao parceiro remetente do projeto).
-- Pode enviar mensagens para os parceiros e para a produção.
-- Emitir relatórios de pedidos por período e por clientes.
+Fï¿½brica gerente
+- Acompanha o andamento da produï¿½ï¿½o, identifica atrasos, inclui aditivos e correï¿½ï¿½es.
+- Pode rejeitar ou cancelar o pedido. (Necessï¿½rio inserir justificativa que serï¿½ mostrada ao parceiro remetente do projeto).
+- Pode enviar mensagens para os parceiros e para a produï¿½ï¿½o.
+- Emitir relatï¿½rios de pedidos por perï¿½odo e por clientes.
 
-Fábrica produção
-Recebe as demandas em tempo real, sejam elas projetos novos ou aditivos, baixa os arquivos diretamente do sistema para a pasta da máquina. Visualiza mensagens de observações referente ao projeto e pode responder ou enviar novas mensagens para o gerente. Ao dar início finalizar o projeto da um ok no sistema e o gerente será informado automaticamente que o projeto saiu da produção e foi para setor de embalagem.
+FÃ¡brica produÃ§Ã£o
+Recebe as demandas em tempo real, sejam elas projetos novos ou aditivos, baixa os arquivos diretamente do sistema para a pasta da mï¿½quina. Visualiza mensagens de observaï¿½ï¿½es referente ao projeto e pode responder ou enviar novas mensagens para o gerente. Ao dar inï¿½cio finalizar o projeto da um ok no sistema e o gerente serï¿½ informado automaticamente que o projeto saiu da produï¿½ï¿½o e foi para setor de embalagem.
  
 Parceiros
-Acompanham o andamento do pedido atravéis dos status: Na fila de produção/em produção/embalagem/em rota de entrega/entregue/cancelado.
-Podem solicitar aditivos, enviar mensagens para o gerente e podem cancelar o pedido caso ainda não tenha entrado em produção.
+Acompanham o andamento do pedido atravÃ©s dos status: Na fila de produï¿½ï¿½o/em produï¿½ï¿½o/embalagem/em rota de entrega/entregue/cancelado.
+Podem solicitar aditivos, enviar mensagens para o gerente e podem cancelar o pedido caso ainda nï¿½o tenha entrado em produï¿½ï¿½o.
 

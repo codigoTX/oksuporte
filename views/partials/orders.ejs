@@ -1,4 +1,3 @@
- 
     <main>
       <button class="btn-green" onclick="openModalOrders()">Novo</button>
       <!-- <table id="table-orders">
@@ -32,6 +31,33 @@
           <td><button class="order-details" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">+</button></td>
         </tr>
       </table> -->
+      <table data-js="orders-list" id="table-orders" >
+        <tr id="tr-orders">
+          <th>ID</th>
+          <th>PROJETO</th>
+          <th>REVENDA</th>
+          <th>USUÁRIO</th>
+          <th>CLIENTE FINAL</th>
+          <th>VALOR</th>
+          <th>INÍCIO</th>
+          <th>PRAZO</th>
+          <th>SITUAÇÃO</th>
+        </tr>
+        <%ordersList.forEach(order => {%>
+          <tr>
+            <td><%= order._id %></td>
+            <td><%= order.title %></td>
+            <td><%= order.company %></td>
+            <td><%= order.requester %></td>
+            <td><%= order.finalClient %></td>
+            <td><%= order.price %></td>
+            <td><%= order.startedAt.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %> - <%= order.startedAt.toLocaleDateString('pt-BR', {timeStyle: 'short'}) %></td>
+            <td><%= order.deadline %></td>
+            <td><%= order.stage %></td>
+            <!-- <td><%= order.closedAt %></td> -->
+          </tr>          
+        <%})%>        
+      </table>
 
       <!--FORMULÁRIO DE PEDIDO-->
       <div class="modal-open-order">
@@ -60,28 +86,7 @@
         </form> 
       </div> 
 
-      <table data-js="orders-list" id="table-orders" class="table-orders">
-        <tr id="tr-orders">
-          <th>ID</th>
-          <th>REVENDA</th>
-          <th>USUÁRIO</th>
-          <th>CLIENTE FINAL</th>
-          <th>VALOR</th>
-          <th>INÍCIO</th>
-          <th>SITUAÇÃO</th>
-        </tr>
-        <%ordersList.forEach(order => {%>
-          <tr>
-            <td><%= order._id %></td>
-            <td><%= order.company %></td>
-            <td><%= order.requester %></td>
-            <td><%= order.finalClient %></td>
-            <td><%= order.price %></td>
-            <td><%= order.startedAt.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %> - <%= order.startedAt.toLocaleDateString('pt-BR', {timeStyle: 'short'}) %></td>
-            <td><%= order.stage %></td>
-          </tr>          
-        <%})%>        
-      </table>
+      
     </main>
   <script src="js/orders.js"></script>
 

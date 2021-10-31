@@ -28,6 +28,9 @@ const orderSchema = new mongoose.Schema({
   startedAt: {
     type: Date, default: new Date
   },
+  deadline: {
+    type: String, // fazer uma contagem regressiva de dias.
+  },
   concludedAt: {
     type: Date
   },

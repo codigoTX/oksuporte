@@ -30,7 +30,7 @@ module.exports.addOrder_post = async (req, res) => {
     var user = await User.findById(decodedToken.id); 
     let loggedUser = {id: user.id, name: user.name, company: user.company};   
   
-  const { userId, requester, company, finalClient, title, obs, attachment, startedAt, concludedAt, interactions, price, stage } = req.body;
+  const { userId, requester, company, finalClient, title, obs, attachment, startedAt, deadline, concludedAt, interactions, price, stage } = req.body;
 
   try {
     const order = await Order.create({ 
@@ -42,9 +42,10 @@ module.exports.addOrder_post = async (req, res) => {
       obs,       
       attachment, 
       startedAt,
+      deadline: "40 dias",
       concludedAt,
       interactions, // receberá um array de strings, essas strings serão as mensagens
-      price,
+      price: 2125,
       stage // Enviado, Recebido, Produção, Embalagem, Retirada, Montagem, Concluído, Cancelado, Pausado
     });
     console.log("pedido cadastrado com sucesso");

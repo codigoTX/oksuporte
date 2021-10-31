@@ -472,18 +472,51 @@ footer{
   #table-orders td{
     padding: 0.1rem;
     text-align: center;
-    background-color: transparent;
   }  
   #table-orders th{
     background-color: #1d1d1d;
     padding: 0.4rem;
     text-align: center;
     border-bottom-style: solid;
-    border-bottom-color:#33CC99;
+    border-bottom-color: transparent;
   }  
-  #table-orders tr:nth-child(odd){
+  /* #table-orders tr:nth-child(odd){
     background-color: rgb(200, 241, 200);
-  } 
+  }  */
+
+/*Classificação dos pedidos*/  
+  .sent{
+    background-color: #7892A1;
+  }
+  .received{
+    background-color: #1C7DCC;
+  }
+  .production{
+    background-color: #996633;
+  }
+  .shipment{
+    background-color: #063951;
+  }
+  .withdrawal{
+    background-color: #FF9D2D;
+  }
+  .installation{
+    background-color: #AD3CFF;
+  }
+  .concluded{
+    background-color: #4CAF50;
+  }
+  .canceled{
+    background-color: #666666;
+  }
+  .paused{
+    background-color: #FFCC00;
+  }
+  .assistance{
+    background-color: #FE0000;
+  }
+
+
   .order-details{
     width: 3.5rem;
     height: 1.5rem;

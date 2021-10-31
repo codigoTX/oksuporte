@@ -1,4 +1,3 @@
-
 //AO CLICAR NO NOME DO USUÁRIO LOGADO, MOSTRA AS OPÇÕES.
 function userDropdownMenu() {
   document.getElementById("user-dropdown").classList.toggle("show-user-opts");
@@ -46,20 +45,6 @@ const getChecked = () => {
     localStorage.setItem('sp', osSts);
   };
 };
-
-
-//MODAL SITUAÇÃO PEDIDOS//
-let openModalOrders = () => {
-  let modal = document.getElementById('os-modal');
-  modal.classList.add('show-modal');
-  modal.addEventListener('click', (e) => {
-
-    if(e.target.className === 'btn-cancel-modal'){
-      modal.classList.remove('show-modal');
-    };
-  });
-};
-
 
 //Gera o Id dos chamados.
 let generatesId = () => {
