@@ -38,11 +38,11 @@ git clone https://github.com/codigoTX/oksuporte
 npm install
 
 # executar
-npm run startdev
+npm run ok
 ```
 
 ## Autor
 
-Rafael Silva Teixeira
+Rafael Teixeira
 
 https://www.linkedin.com/in/rafaeltx/

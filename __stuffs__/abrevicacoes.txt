@@ -3,3 +3,6 @@ nw: novo
 ctn: container
 btn: botão
 opts: opções
+--fc: cor da fonte
+--bc: cor de fundo
+--ic: cor da fonte do input

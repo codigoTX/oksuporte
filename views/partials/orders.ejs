@@ -1,5 +1,8 @@
     <main>
       <button class="btn-green" onclick="openModalOrders()">Novo</button>
+      <a href="/download" class="btn-white" style="color: black; width: 150px;">Download</a>
+     
+      
       <!-- <table id="table-orders">
         <tr>
         <th>ID</th>
@@ -33,7 +36,7 @@
       </table> -->
       <table data-js="orders-list" id="table-orders" >
         <tr id="tr-orders">
-          <th>ID</th>
+          <th>CÓDIGO</th>
           <th>PROJETO</th>
           <th>REVENDA</th>
           <th>USUÁRIO</th>
@@ -44,9 +47,9 @@
           <th>SITUAÇÃO</th>
         </tr>
         <%ordersList.forEach(order => {%>
-          <tr>
+          <tr class="order-table-rows">
             <td><%= order._id %></td>
-            <td><%= order.title %></td>
+            <td><%= order.title %></td> 
             <td><%= order.company %></td>
             <td><%= order.requester %></td>
             <td><%= order.finalClient %></td>
@@ -61,14 +64,14 @@
 
       <!--FORMULÁRIO DE PEDIDO-->
       <div class="modal-open-order">
-        <form id="orders-form" class="fm-nw-order">
+        <form action="/orders" method="post" id="orders-form" class="fm-nw-order" enctype="multipart/form-data">
           <p>Novo Pedido</p>
           <div class="fm-group g1">
             <label for="">Cliente</label>
             <input type="text" name="finalClient" id="finalClient">
           </div>
           <div class="fm-group g1">
-            <label for="">Título</label>
+            <label for="">Nome do Projeto</label>
             <input type="text" name="title" id="title">
           </div>             
           <div class="fm-group g3">
@@ -76,7 +79,7 @@
             <textarea rows="10" name="obs" id="obs"></textarea>
           </div>         
           <div class="fm-group g4"> 
-            <label for="">Projeto</label> 
+            <label for="">Arquivo do projeto(Fulana_de_tal.rar)</label> 
             <input type="file" name="attachment" id="attachment">     
           </div> 
           <div class="g5">

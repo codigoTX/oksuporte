@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
-
+const Order = require('./models/Order');
 
 const app = express();
 
@@ -25,7 +25,6 @@ mongoose.connect(dbURI)
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('login'));
 app.get('/home', requireAuth, (req, res) => res.render('template', {pageDetails: { home: true, title: 'Minino Móveis Planejados'} }));
-// app.get('/orders', requireAuth, (req, res) => res.render('template', {pageDetails: { orders: true, title: 'LISTA DE PEDIDOS'} }));
 app.get('/config', requireAuth, (req, res) => res.render('template', {pageDetails: { config: true, title: 'CONFIGURAÇÕES'} }));
 app.get('/info', requireAuth, (req, res) => res.render('template', {pageDetails: { info: true, title: 'INFORMAÇÕES ÚTEIS'} }));
 app.get('/help', (req, res) => res.render('template', {pageDetails: { help: true, title: 'FALE CONOSCO'} }));

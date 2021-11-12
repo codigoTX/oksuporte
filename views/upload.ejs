@@ -1,0 +1,30 @@
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="attachment" />
+  <button type="submit">Enviar</button>
+</form>
+
+<div class="modal-open-order">
+  <form method="post" id="orders-form" class="fm-nw-order" enctype="multipart/form-data">
+    <p>Novo Pedido</p>
+    <div class="fm-group g1">
+      <label for="">Cliente</label>
+      <input type="text" name="finalClient" id="finalClient">
+    </div>
+    <div class="fm-group g1">
+      <label for="">Nome do Projeto</label>
+      <input type="text" name="title" id="title">
+    </div>             
+    <div class="fm-group g3">
+      <label for="">Observações</label>
+      <textarea rows="10" name="obs" id="obs"></textarea>
+    </div>         
+    <div class="fm-group g4"> 
+      <label for="">Arquivo do projeto(Fulana_de_tal.rar)</label> 
+      <input type="file" name="attachment" id="attachment">     
+    </div> 
+    <div class="g5">
+      <a class="btn-cancel" href="orders">Cancelar</a>  
+      <button type="submit" class="btn-black">Enviar</button>
+    </div>      
+  </form> 
+</div>

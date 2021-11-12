@@ -2,22 +2,21 @@
 
 :root{
   --bc: #fafafa;
-  --fc: dimgray;
+  --fc: black;
   --ic: #33cc99;
  }
 
 .darkmode{
   --bc: #333333;
-  --fc: #727574;
+  --fc: #fafafa;
   --ic: #33cc99;
- }
+ } 
   
 *{  
   margin: 0;
   padding: 0;
   color:var(--fc);
   font-family: 'Argentum Sans', sans-serif;
-  transition: 0.3s ease-in-out;
 }
 
 html{
@@ -39,6 +38,8 @@ body{
   position: absolute;
   background-color: var(--bc);
   font-size: 0.8rem;
+  transition: 1s ease-in-out;
+
 }
 
 main{
@@ -464,22 +465,42 @@ footer{
 
 /*(INÍCIO)-PEDIDOS---------------------------------------------------------------------------*/
 #table-orders{    
-  /* border-collapse: collapse; */
+  border-collapse: collapse;
   width: 100%;
   margin: auto;
   font-size: 0.7rem;
+  /* transition: 0.1s ease-in-out; */
+
 }  
   #table-orders td{
-    padding: 0.1rem;
+    height: 2em;
+    width: 15em;
+    padding: 0.3em;
     text-align: center;
   }  
   #table-orders th{
     background-color: #1d1d1d;
-    padding: 0.4rem;
+    padding: 0.5em;
     text-align: center;
     border-bottom-style: solid;
     border-bottom-color: transparent;
   }  
+  .order-table-rows{
+    /* border-collapse: collapse;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid; */
+    padding: 0.2em;
+  }
+  .order-table-rows:hover{
+    opacity: 70%;
+    /* border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: transparent;
+    border-bottom-color: transparent; */
+    cursor: pointer;
+  }
+  
   /* #table-orders tr:nth-child(odd){
     background-color: rgb(200, 241, 200);
   }  */
@@ -515,7 +536,6 @@ footer{
   .assistance{
     background-color: #FE0000;
   }
-
 
   .order-details{
     width: 3.5rem;

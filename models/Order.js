@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const orderSchema = new mongoose.Schema({
   
   userId: {
@@ -20,10 +19,10 @@ const orderSchema = new mongoose.Schema({
     required: [true, 'Insira um título para esse pedido']
   },
   obs: {
-    type: String,
+    type: String
   },
   attachment: {
-    type: String
+    type: Object
   },
   startedAt: {
     type: Date, default: new Date
