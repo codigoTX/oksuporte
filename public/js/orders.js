@@ -1,6 +1,3 @@
-const Order = require("../../models/Order");
-
-
 //MODAL FORMULÁRIO DE PEDIDOS//
 function openModalOrders() {
   let modal = document.querySelector('.modal-open-order');
@@ -88,19 +85,17 @@ function formatOrdersTable(){
   }
 }
 
-
-  // const ordersTable = document.querySelector('#table-orders');
-  // const rows = ordersTable.querySelectorAll('tr');
+  const ordersTable = document.querySelector('#table-orders');
+  const rows = ordersTable.querySelectorAll('tr');
   
-  // rows.forEach(row => {
-  //   row.addEventListener('click', (e) => {
-  //     const clickedOrderId = e.target.parentNode.firstElementChild;
+  rows.forEach(row => {
+    row.addEventListener('click', (e) => {
+      const clickedOrderId = e.target.parentNode.firstElementChild;
 
-  //     Order.findById(order.id);
+      console.log(clickedOrderId);
+    })
+  });
 
-  //     console.log(clickedOrderId);
-  //   })
-  // });
 
 
 // modal.addEventListener('click', (e) => {
@@ -109,7 +104,3 @@ function formatOrdersTable(){
 //     modal.classList.remove('show-modal');
 //   };
 // });
-
-
-
-//OBTER DADOS DO MONGODB PARA ALIMENTAR A TABELA DOS CHAMADOS.

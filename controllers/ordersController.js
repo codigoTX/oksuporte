@@ -4,6 +4,7 @@ const User = require('../models/User');
 require('dotenv').config();
 
 
+// clickedOrderId = require('../public/js/orders');
 
 module.exports.addOrder_get = (req, res) => {  
   token = req.cookies.jwt;    
@@ -82,19 +83,3 @@ module.exports.uploadProject = async (req, res) => {
   console.log(attachedFile);
 
 };
-
-module.exports.orderDetails = async(req, res) => {
-
-  const ordersTable = document.querySelector('#table-orders');
-  const rows = ordersTable.querySelectorAll('tr');  
-  rows.forEach(row => {
-    row.addEventListener('click', (e) => {
-      const clickedOrderId = e.target.parentNode.firstElementChild;
-
-      Order.findById(order.id);
-
-      console.log(clickedOrderId);
-    })
-  });
-
-}  
